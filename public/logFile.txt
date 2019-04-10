@@ -1,0 +1,26 @@
+*   Trying 139.59.248.252...
+* TCP_NODELAY set
+* Connected to sandbox.goship.io (139.59.248.252) port 80 (#0)
+> POST /api/v2/rates HTTP/1.1
+Host: sandbox.goship.io
+Accept: */*
+Authorization:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImMyMThiYTcxZjhiMWZhZDk0ZmE4N2Q4NDQ0MzllNGIyOGJkYmFiNjk2YWU5OGM3OGU5NTlkYmMxNGYxNWE2NjAxNDBmOWZlNWU3MmYwMjBlIn0.eyJhdWQiOiI0MSIsImp0aSI6ImMyMThiYTcxZjhiMWZhZDk0ZmE4N2Q4NDQ0MzllNGIyOGJkYmFiNjk2YWU5OGM3OGU5NTlkYmMxNGYxNWE2NjAxNDBmOWZlNWU3MmYwMjBlIiwiaWF0IjoxNTUxNzA5OTQyLCJuYmYiOjE1NTE3MDk5NDIsImV4cCI6MTU4MzMzMjM0Miwic3ViIjoiMjE3OSIsInNjb3BlcyI6W119.zoVab-iMS24CW2lp7GMBKeZbT0qlokchCff7FUCRQ8uWb6Z69ejXa1sf4_e_96t8D9AVP9CWGQklIuuxnUL2xzylMamMIqeXSbsyuWsgyd4rSQUE4ltX5eI3oOcu-87sq52k1D0DQE4bXY6iaZWZtg2NuhqoV_rv1j5niyXKzkiGnE3ra9dLLvmqEGipku2-IdcdKtCO6-ERogrdKg3crkubesqRqCi8dGhwct-Fumh4PxPch6CavN_2kLcm_hFuL6arWfyVCzWY6XSlIg5zJiAjDhUjERey0x5UR37x36MJz3s2a7ijY5IakXOLr5RZqy68o_iGk_JS4m-D8OwrnFyu2R2YtNU7B48qy_RSoPUFCoBSE_W1snQ3HSaFwWyDEr9JhxpAfdcHsvCx-hA5EOyNTSGlvEvPsng3a-a00T4I7SJLtE_FRGudXLpD2dLpSZRcRPLPRQCHuQ9NepHwKfs-jrCg3S7V_JPIdv8CM6U9f3t83KHNS6CmbvhEpO-o_84CQVcdcgZb4WsRdRq713I5n_XTKmKzLbLO9_43T-1Fe4H3MTew4K25dJFXwHiqQuCkxV5q1edHlmt_nuhHB8HkIPgnTDwDYTIfGdxYAHyVAphFPiIYvRkV-i38NBNob7BXrQ1Hg1IOcr_P0qHfy6rsEwGl9lpHF_2Y1qC1YTU
+Content-Type: application/json
+Connection: Keep-Alive
+Content-Length: 190
+
+* upload completely sent off: 190 out of 190 bytes
+< HTTP/1.1 200 OK
+< Server: nginx/1.10.3 (Ubuntu)
+< Date: Mon, 04 Mar 2019 15:19:03 GMT
+< Content-Type: application/json
+< Content-Length: 1471
+< Connection: keep-alive
+< Vary: Authorization
+< Cache-Control: private, must-revalidate
+< pragma: no-cache
+< expires: -1
+< X-RateLimit-Limit: 90
+< X-RateLimit-Remaining: 89
+< 
+* Connection #0 to host sandbox.goship.io left intact
