@@ -22,6 +22,9 @@ class RestfulApiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function create(){
+        return response()->json([ 'data' => View("admin.$this->view.create")->render()]);
+    }
     public function index()
     {
         $params =  [
@@ -37,14 +40,14 @@ class RestfulApiController extends Controller
     }
 
     public function store(Request $request)
-    {   
+    {
         $class = new $this->model;
         foreach($request->all() as $key => $field){
             $class[$key] = $field;
         }
         $class->id = NULL;
-        $class->save();
-        return response()->json([ 'data' => View("admin.$this->view.item", ['row' => $class ])->render()]);
+        $class->save();        
+        return response()->json([ 'data' => View("admin.$this->view.item", ['row' => $class ])->render(), 'status'=> 200]);
     }
 
     /**
@@ -66,7 +69,7 @@ class RestfulApiController extends Controller
      */
     public function edit($id)
     {
-        $row = $this->model::find($id);
+        $row = $this->model::find($id);        
         if(!isset($row)) return response()->json(['status' => 500]);
         return response()->json([ 'data' => View("admin.$this->view.edit", ['row' => $row ])->render(), 'status'=> 200]);
     }
@@ -82,9 +85,8 @@ class RestfulApiController extends Controller
     {
         $result =$this->model::where('id', $id)->update($request->all());
         if($result != 1) return response()->json(['status' => 500]);
-
         $row = $this->model::find($id);
-        return response()->json([ 'data' => View("admin.$this->view.item", ['row' => $this->model::find($id) ])->render(), 'status'=> 200]);
+        return response()->json([ 'data' => View("admin.$this->view.item", ['row' => $this->model::find($id),'key' =>1 ])->render(), 'status'=> 200]);
     }
 
     /**

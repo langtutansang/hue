@@ -1,7 +1,7 @@
 @extends('admin.layouts.index')
 
 @section('content')
-    @include('admin.category.content')
+    @include('admin.classes.content')
 @endsection
 
 @section('css')

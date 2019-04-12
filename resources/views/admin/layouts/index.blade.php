@@ -10,20 +10,12 @@
     <!-- favicon
 		============================================ -->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
-    <!-- Google Fonts
-		============================================ -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
     <!-- Bootstrap CSS
 		============================================ -->
     <link rel="stylesheet" href="{{ asset('admin-asset/css/bootstrap.min.css') }}">
     <!-- Bootstrap CSS
 		============================================ -->
     <link rel="stylesheet" href="{{ asset('admin-asset/css/font-awesome.min.css') }}">
-    <!-- owl.carousel CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('admin-asset/css/owl.carousel.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin-asset/css/owl.theme.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin-asset/css/owl.transitions.css') }}">
     <!-- animate CSS
 		============================================ -->
     <link rel="stylesheet" href="{{ asset('admin-asset/css/animate.css') }}">
@@ -39,9 +31,6 @@
     <!-- educate icon CSS
 		============================================ -->
     <link rel="stylesheet" href="{{ asset('admin-asset/css/educate-custon-icon.css') }}">
-    <!-- morrisjs CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('admin-asset/css/morrisjs/morris.css') }}">
     <!-- mCustomScrollbar CSS
 		============================================ -->
     <link rel="stylesheet" href="{{ asset('admin-asset/css/scrollbar/jquery.mCustomScrollbar.min.css') }}">
@@ -49,16 +38,15 @@
 		============================================ -->
     <link rel="stylesheet" href="{{ asset('admin-asset/css/metisMenu/metisMenu.min.css') }}">
     <link rel="stylesheet" href="{{ asset('admin-asset/css/metisMenu/metisMenu-vertical.css') }}">
-    <!-- calendar CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('admin-asset/css/calendar/fullcalendar.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin-asset/css/calendar/fullcalendar.print.min.css') }}">
     <!-- style CSS
 		============================================ -->
     <link rel="stylesheet" href="{{ asset('admin-asset/css/style.css') }}">
     <!-- responsive CSS
 		============================================ -->
     <link rel="stylesheet" href="{{ asset('admin-asset/css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin-asset/toastr/toastr.min.css')}}"/>
+    <meta name="_token" content="{{ csrf_token() }}">
+
     @yield("css")
     <!-- modernizr JS
 		============================================ -->
@@ -82,32 +70,22 @@
     <!-- jquery
 		============================================ -->
     <script src="{{ asset('admin-asset/js/vendor/jquery-1.12.4.min.js') }}"></script>
+    <script src="{{ asset('admin-asset/js/custom.js') }}"></script>
     <!-- bootstrap JS
 		============================================ -->
     <script src="{{ asset('admin-asset/js/bootstrap.min.js') }}"></script>
     <!-- wow JS
 		============================================ -->
     <script src="{{ asset('admin-asset/js/wow.min.js') }}"></script>
-    <!-- price-slider JS
-		============================================ -->
-    <script src="{{ asset('admin-asset/js/jquery-price-slider.js') }}"></script>
     <!-- meanmenu JS
 		============================================ -->
     <script src="{{ asset('admin-asset/js/jquery.meanmenu.js') }}"></script>
-    <!-- owl.carousel JS
-		============================================ -->
-    <script src="{{ asset('admin-asset/js/owl.carousel.min.js') }}"></script>
     <!-- sticky JS
 		============================================ -->
     <script src="{{ asset('admin-asset/js/jquery.sticky.js') }}"></script>
     <!-- scrollUp JS
 		============================================ -->
     <script src="{{ asset('admin-asset/js/jquery.scrollUp.min.js') }}"></script>
-    <!-- counterup JS
-		============================================ -->
-    <script src="{{ asset('admin-asset/js/counterup/jquery.counterup.min.js') }}"></script>
-    <script src="{{ asset('admin-asset/js/counterup/waypoints.min.js') }}"></script>
-    <script src="{{ asset('admin-asset/js/counterup/counterup-active.js') }}"></script>
     <!-- mCustomScrollbar JS
 		============================================ -->
     <script src="{{ asset('admin-asset/js/scrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
@@ -116,30 +94,23 @@
 		============================================ -->
     <script src="{{ asset('admin-asset/js/metisMenu/metisMenu.min.js') }}"></script>
     <script src="{{ asset('admin-asset/js/metisMenu/metisMenu-active.js') }}"></script>
-    <!-- morrisjs JS
-		============================================ -->
-    <script src="{{ asset('admin-asset/js/morrisjs/raphael-min.js') }}"></script>
-    <script src="{{ asset('admin-asset/js/morrisjs/morris.js') }}"></script>
-    <script src="{{ asset('admin-asset/js/morrisjs/morris-active.js') }}"></script>
-    <!-- morrisjs JS
-		============================================ -->
-    <script src="{{ asset('admin-asset/js/sparkline/jquery.sparkline.min.js') }}"></script>
-    <script src="{{ asset('admin-asset/js/sparkline/jquery.charts-sparkline.js') }}"></script>
-    <script src="{{ asset('admin-asset/js/sparkline/sparkline-active.js') }}"></script>
-    <!-- calendar JS
-		============================================ -->
-    <script src="{{ asset('admin-asset/js/calendar/moment.min.js') }}"></script>
-    <script src="{{ asset('admin-asset/js/calendar/fullcalendar.min.js') }}"></script>
-    <script src="{{ asset('admin-asset/js/calendar/fullcalendar-active.js') }}"></script>
     <!-- plugins JS
 		============================================ -->
     <script src="{{ asset('admin-asset/js/plugins.js') }}"></script>
     <!-- main JS
 		============================================ -->
     <script src="{{ asset('admin-asset/js/main.js') }}"></script>
-    <!-- tawk chat JS
-		============================================ -->
-    <script src="{{ asset('admin-asset/js/tawk-chat.js') }}"></script>
+    <script src="{{ asset('admin-asset/toastr/toastr.min.js')}}"></script>
+    <script>
+      $(function(){
+        $.ajaxSetup({
+          headers: {
+          'X-CSRF-Token': $('meta[name="_token"]').attr('content')
+          }
+        });
+      });
+
+    </script>
     @yield("script")
 </body>
 

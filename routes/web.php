@@ -22,7 +22,10 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/login', 'AuthAdmin\AdminLoginController@index')->name('adminAuth.login');
     Route::post('/login', 'AuthAdmin\AdminLoginController@login')->name('adminAuth.submitLogin');
     Route::get('/logout', 'AuthAdmin\AdminLoginController@logout')->name('adminAuth.logout');
-    Route::get('/category', 'Admin\CategoryController@buildInputVarIndex')->name('admin.category');
+
+    Route::resource('/category', 'Admin\CategoryController');
+    Route::resource('/classes', 'Admin\ClassesController');
+    
 });
 
 Auth::routes();
