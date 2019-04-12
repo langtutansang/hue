@@ -19,7 +19,7 @@
           </a>
           <ul class="treeview-menu">
             @foreach($categories as $category)
-              <li><a class="fa fa-edit" href="/category/{{ $category->id}}">   {{ $category->name}}</a>
+              <li><a class="fa fa-edit" href="/category/{{ $category->id}}">   {{ $category->title}}</a>
               </li>
               @endforeach
           </ul>
@@ -36,7 +36,7 @@
           </a>
           <ul class="treeview-menu">
             @foreach($categories as $category)
-              <li><a href="/category/{{$category->id}}"><i class="fa fa-circle-thin"></i>{{ $category->name }}</a></li>
+              <li><a href="/category/{{$category->id}}"><i class="fa fa-circle-thin"></i>{{ $category->title }}</a></li>
             @endforeach
           </ul>
         </li>

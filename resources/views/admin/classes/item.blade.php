@@ -1,8 +1,7 @@
 <tr id="row{{$row->id }}">
-    <td>{{$row->id }}</td>
-    <td>{{$row->course_id }}</td>
+    <td>{{ $key+1 }}</td>
+    <td>{{$row->course->title }}</td>
     <td>{{$row->title }}</td>
-    <td>{{$row->image }}</td>
     <td>{{$row->teacher }}</td>
     <td>
         <button class="btn btn-primary btn-outline edit-row" edit-id="{{$row->id }}" ><i class="fa fa-edit"></i></button>

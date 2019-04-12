@@ -5,7 +5,7 @@
                 <div class="sparkline13-list">
                     <div class="sparkline13-hd">
                         <div class="main-sparkline13-hd">
-                            <h1>Danh sách Category</h1>
+                            <h1>Danh sách thể loại</h1>
                         </div>
                     </div>
                     <div class="sparkline13-graph">
@@ -17,12 +17,12 @@
                                     <option value="all">Export All</option>
                                 </select>
                             </div>
-                            <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
+                            <table width="100%" id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
                                 data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
                                 <thead>
                                     <tr>
                                         <th data-field="id">STT</th>
-                                        <th data-field="name" data-editable="true">Tên</th>
+                                        <th data-field="name" data-editable="true">Tên loại</th>
                                         <th data-field="action">Action</th>
                                     </tr>
                                 </thead>

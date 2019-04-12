@@ -20,4 +20,10 @@ class ClassesController extends RestfulApiController
     public function create(){
         return response()->json([ 'data' => View("admin.$this->view.create",['courses'=> Course::where("deleted", 0)->get()])->render()]);
     }
+    public function edit($id)
+    {
+        $row = $this->model::find($id);        
+        if(!isset($row)) return response()->json(['status' => 500]);
+        return response()->json([ 'data' => View("admin.$this->view.edit", ['row' => $row, 'courses'=> Course::where("deleted", 0)->get() ])->render(), 'status'=> 200]);
+    }
 }

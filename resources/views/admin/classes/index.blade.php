@@ -5,9 +5,9 @@
 @endsection
 
 @section('css')
-    @include('admin.category.css')
+    @include('admin.classes.css')
 @endsection
 
 @section('script')
-    @include('admin.category.script')
+    @include('admin.classes.script')
 @endsection

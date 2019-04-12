@@ -1,27 +1,43 @@
-<div id="edit-form">
-    <div >
+<div id="edit-form" >
+    <div>
         <h4 class="modal-title">Sửa thông tin {{ $row->title }}</h4>
     </div>
-    <div>
-
-        <div class="form-item">
-            <p class="formLabel">Tên</p>
-            <input type="text" name="title" class="form-style" autocomplete="off" value="{{ $row->title }}"/>
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+            <div class="input-mask-title">
+                <label>Tên</label>
+            </div>
         </div>
-        <div class="form-item">
-            <p class="formLabel formTop" style="z-index:3">Loại sản phẩm</p>
-            <select id="edit-select" name="category_id" class="form-style" placeholder="Chọn loại">
-                @if($row->category->deleted != 0)
-                    <option  selected disabled>{{ $row->category->title }}(đã bị xóa)</option>
-                @endif
-                @foreach($categories as $category)
-                    <option value="{{$category->id}}" {{  $row->category_id == $category->id ? 'selected' : '' }}>{{ $category->title }}</option>
-                @endforeach
-            </select>
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+            <div class="input-mark-inner mg-b-22">
+                <input type="text" class="form-control" name="title" value="{{ $row->title }}">
+            </div>
         </div>
-        <div class="form-item">
-            <p class="formLabel formTop">Slug</p>
-            <input type="text" name="slug" class="form-style" autocomplete="off" disabled value="{{ $row->slug }}"/>
+    </div>
+    <div class="row select2-course">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+            <div class="input-mask-title">
+                <label>Khóa học</label>
+            </div>
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 chosen-select-single">
+                <select data-placeholder="Choose a Country..." name="course" class="chosen-select col-md-12">
+                    @foreach($courses as $course)
+                        <option  {{  $row->course_id == $course->id ? 'selected' : '' }} value="{{ $course->id }}">{{ $course->title }}</option>
+                    @endforeach
+                </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+            <div class="input-mask-title">
+                <label>Giáo viên</label>
+            </div>
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+            <div class="input-mark-inner mg-b-22">
+                <input type="text" class="form-control" name="teacher" value="{{ $row->teacher }}">
+            </div>
         </div>
     </div>
 </div>

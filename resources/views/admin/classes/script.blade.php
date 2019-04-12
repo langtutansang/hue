@@ -9,134 +9,51 @@
 <script src="{{ asset('admin-asset/js/data-table/colResizable-1.5.source.js') }}"></script>
 <script src="{{ asset('admin-asset/sweetalert2/dist/sweetalert2.min.js')}}"></script>
 <script src="{{ asset('admin-asset/js/data-table/bootstrap-table-export.js') }}"></script>
-
+<script src="{{ asset('admin-asset/js/select2/select2.full.min.js') }}"></script>
 <script>
-    $('#create-form').css("display", "none");
-    const addListener = function(){
-        $('.delete-row').off()
-        $('.edit-row').off()
-        $('.delete-row').on('click', deleteRow)
-        $('.edit-row').on('click', editRow)
-        $('.modalAdd').on('click', showAddPopup)
-    }
     $(function(){
-        addListener();
-    });
-    function showAddPopup(){
-        $.ajax({
-            type:'GET',
-            url:`/admin/classes/create`,
-            data: "",
-            success:(res) => {
-                if(res.data){
-                    addPopup();
-                }
-            },
-            error: ()=> {
-            }
-        })
-    } 
-    function addPopup(){
-        swal({
-            html: res.data,
-            showCancelButton:true,
-            confirmButtonColor:"#3085d6",
-            cancelButtonColor:"#d33",
-            confirmButtonText:"Thêm",
-            cancelButtonText:"Hủy bỏ",
-            onOpen:()=>{
-                $('.chosen-select').select2(
-                    {
-                        dropdownParent: '.chosen-select-single',
-                        containerCss: 'top: 20px;',
-                    }
-                )
-            }
-        })
-        .then((data)=> {
-            $.ajax({
-                type:'POST',
-                url:`/admin/classes`,
-                data: {
-                    title: $('#create-form .form-style[name="name"]').val()
-                },
-                success:(res) => {
-                    if(res.status === 200 ){
-                        $('tbody').prepend(res.data);
-                        addListener();
-                        createSuccessPopup();
-                    }
-                    else createErrorPopup()
-                },
-                error: ()=> {
-                    createErrorPopup()
-                }
-            })
-        })
-        .catch(()=> {} )
-    }
-    function editRow() {
-        let id = $(this).attr('edit-id');
-        $.ajax({
-            type:'GET',
-            url:`/admin/category/${id}/edit`,
-            success:(res) => {
-                if(res.status === 200 ){
-                    editPopup(res.data, id);
-                }
-                else updateErrorPopup()
-            }
-        })
-    }
-    function editPopup(data, id) {
-        swal({
-            html: data,
-            showCancelButton:true,
-            confirmButtonColor:"#3085d6",
-            cancelButtonColor:"#d33",
-            confirmButtonText:"Xác nhận",
-            cancelButtonText:"Hủy bỏ",
-            onOpen: ()=> {}                
-        })
-        .then((data)=> {
-            $.ajax({
-                type:'PATCH',
-                url:`/admin/category/${id}`,
-                data: {
-                    title: $('#edit-form .form-style[name="title"]').val()
-                },
-                success:(res) => {
-                    console.log(res);
-                    if(res.status === 200 ){
-                        $(`tr#row${id}`).replaceWith(res.data);
-                        addListener();
-                        updateSuccessPopup();
-                    }
-                    else updateErrorPopup()
-                },
-                error: ()=> {
-                    updateErrorPopup()
-                }
-            })
-        })
-        .catch(()=> {} )
-        
-    }
-    function deleteRow() {
-        deletePopup()
-            .then(()=>{
-                $.ajax({
-                    type:'DELETE',
-                    url:`/admin/category/${$(this).attr('delele_id')}`,
-                    success:(res) => {
-                        if(!!+res){
-                            $(this).parents('tr').remove()
-                            deleteSuccessPopup();
-                        }
-                        else deleteErrorPopup()
-                    }
+        $('.modalAdd').on('click', function(){
+            getFormCreate(
+                "classes",
+                ()=>{
+                    return ({ 
+                        title: $('#create-form input[name="title"]').val(),
+                        course_id: $('#create-form select[name="course"]').val(),
+                        teacher: $('#create-form input[name="teacher"]').val()
                     })
-                })
-                .catch(err => {})
-        }
+                }, 
+                ()=>{
+                    $('.chosen-select').select2({
+                        placeholder: 'Chọn khóa học',
+                        allowClear: true,
+                        dropdownParent: $(".chosen-select-single"),
+                    })
+                }
+            );            
+        });
+        $('.edit-row').on('click', function(){
+            let id = $(this).attr('edit-id');
+            getFormEdit(
+                "classes", 
+                id,
+                ()=>{
+                    return ({ 
+                        title: $('#edit-form input[name="title"]').val(),
+                        course_id: $('#edit-form select[name="course"]').val(),
+                        teacher: $('#edit-form input[name="teacher"]').val()
+                    })
+                }, 
+                ()=>{
+                    $('.chosen-select').select2({
+                        placeholder: 'Chọn khóa học',
+                        allowClear: true,
+                        dropdownParent: $(".chosen-select-single"),
+                    })
+                }
+            );
+        });
+        $('.delete-row').on('click', function(){
+            deletePopup("classes", $(this).attr('delele_id'));
+        });
+    });
     </script>

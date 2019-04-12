@@ -47,7 +47,7 @@ class RestfulApiController extends Controller
         }
         $class->id = NULL;
         $class->save();        
-        return response()->json([ 'data' => View("admin.$this->view.item", ['row' => $class ])->render(), 'status'=> 200]);
+        return response()->json([ 'status'=> 200]);
     }
 
     /**
@@ -85,8 +85,7 @@ class RestfulApiController extends Controller
     {
         $result =$this->model::where('id', $id)->update($request->all());
         if($result != 1) return response()->json(['status' => 500]);
-        $row = $this->model::find($id);
-        return response()->json([ 'data' => View("admin.$this->view.item", ['row' => $this->model::find($id),'key' =>1 ])->render(), 'status'=> 200]);
+        return response()->json([ 'status'=> 200]);
     }
 
     /**

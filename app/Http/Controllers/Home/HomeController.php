@@ -14,13 +14,5 @@ class HomeController
             "categories" => $categories
         ]);
     }
-    public function admin(){
-           
-        return view("admin.dashboard.index",
-        [
-            "flag"=> 1,
-            "title" => "Home"
-        ]);
-    }
     
 }
