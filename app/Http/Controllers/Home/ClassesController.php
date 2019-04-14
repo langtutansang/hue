@@ -5,14 +5,23 @@ use App\Category;
 use App\Lesson;
 use App\Classes;
 use App\LessonVideo;
+use App\ResultTest;
 
 class ClassesController
 {
     public function index($id){
+        $classes = Classes::where("deleted", 0)->where('id', $id)->first();
+        if(!isset($classes)) return redirect('/');
+        $enabledTest = false;
+        if(!isset($classes->previous_class)){
+            $enabledTest = true;
+        }else{
+            $temp = ResultTest::join("test", "result_test.test_id", "=", "test.id")->where("test.classes_id", $classes->previous_class)
+            ->where("result_test.score", ">=", 5)->select('result_test.*')->count();
+            $enabledTest = $temp !== 0 ;
+        }
         $categories = Category::where("deleted", 0)->get();
         $lessons = Lesson::where("deleted", 0)->where('classes_id', $id)->get();
-        $classes = Classes::where("deleted", 0)->where('id', $id)->first();
-        $video = LessonVideo::where('lesson_id', $id)->first();
      
         $breadcrumbs = [
             [
@@ -32,13 +41,13 @@ class ClassesController
         ];
 
         return view("home.classes.index",
-           [   
+        [
             "categories"=> $categories, 
             "lessons" => $lessons ,
             "breadcrumbs" => $breadcrumbs,
-            "video" => $video,
             "classes" => $classes,
-            "title" => $classes->name
+            "title" => $classes->name,
+            "enabledTest" => $enabledTest
         ]);
     }
     

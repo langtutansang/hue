@@ -10,9 +10,9 @@
     "require": {
         "php": "^7.1.3",
         "fideloper/proxy": "^4.0",
-        "gloudemans/shoppingcart": "^2.6",
         "ixudra/curl": "^6.16",
-        "laravel/framework": "5.7.*",
+        "joggapp/laravel-google-translate": "^2.0",
+        "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0"
     },
     "require-dev": {

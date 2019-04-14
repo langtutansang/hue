@@ -9,7 +9,9 @@
 <script src="{{ asset('admin-asset/js/data-table/colResizable-1.5.source.js') }}"></script>
 <script src="{{ asset('admin-asset/sweetalert2/dist/sweetalert2.min.js')}}"></script>
 <script src="{{ asset('admin-asset/js/data-table/bootstrap-table-export.js') }}"></script>
+<script src="{{ asset('admin-asset/js/ckeditor/ckeditor.js') }}"></script>v
 <script>
+    
     $(function(){
         $('.modalAdd').on('click', function(){
             getFormCreate(
@@ -17,8 +19,14 @@
                 ()=>{
                     return ({ 
                         title: $('#create-form input[name="title"]').val(),
-                        description: $('#create-form input[name="description"]').val(),
+                        description: CKEDITOR.instances['description'].getData(),
                     })
+                },
+                ()=>{
+                    CKEDITOR.replace( 'description' );
+                },
+                {
+                    width: 950,                    
                 }
             );            
         });
@@ -30,8 +38,14 @@
                 ()=>{
                     return ({ 
                         title: $('#edit-form input[name="title"]').val(),
-                        description: $('#edit-form input[name="description"]').val(),
+                        description: CKEDITOR.instances['description'].getData(),
                     })
+                },
+                ()=>{
+                    CKEDITOR.replace( 'description' );
+                },
+                {
+                    width: 950,                    
                 }
             );
         });

@@ -10,6 +10,9 @@ class TestQuestion extends Model
     public $timestamps = false;
     
     public function testQuestionDetail(){
-        return $this->hasMany("App\TestQuestionDetail");
+        return $this->hasMany("App\TestQuestionDetail")->where('deleted', 0);
+    }
+    public function test(){
+        return $this->belongsTo("App\Test");
     }
 }

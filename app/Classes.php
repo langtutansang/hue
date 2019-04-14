@@ -15,5 +15,7 @@ class Classes extends Model
     public function test(){
         return $this->hasOne("App\Test");
     }
-
+    public function lesson(){
+        return $this->hasMany("App\Lesson")->where('deleted', 0);
+    }
 }

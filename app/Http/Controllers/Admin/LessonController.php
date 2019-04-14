@@ -26,4 +26,7 @@ class LessonController extends RestfulApiController
         if(!isset($row)) return response()->json(['status' => 500]);
         return response()->json([ 'data' => View("admin.$this->view.edit", ['row' => $row, 'classes'=> Classes::where("deleted", 0)->get() ])->render(), 'status'=> 200]);
     }
+    public function createLesson(){
+        return view("admin.$this->view.create", ['classes'=> Classes::where("deleted", 0)->get()]);
+    }
 }

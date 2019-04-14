@@ -3,13 +3,13 @@
     <a href="index.html" class="logo">
       <!-- mini logo -->
 	  <b class="logo-mini">
-		  <span class="light-logo"><img src="" alt="logo"></span>
-		  <span class="dark-logo"><img src="" alt="logo"></span>
+		  <span class="light-logo"><img src="asset('home/img/logosn.png')" alt="logo"></span>
+		  <span class="dark-logo"><img src="asset('home/img/logosn.png')" alt="logo"></span>
 	  </b>
       <!-- logo-->
       <span class="logo-lg">
-		  <img src="" alt="logo" class="light-logo">
-	  	  <img src="" alt="logo" class="dark-logo">
+		  <img src="asset('home/img/logosn.png')" alt="logo" class="light-logo">
+	  	  <img src="asset('home/img/logosn.png')" alt="logo" class="dark-logo">
 	  </span>
     </a>
     <!-- Header Navbar -->
@@ -26,12 +26,12 @@
 		  <!-- User Account-->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="" class="user-image rounded-circle" alt="User Image">
+              <img src="asset('home/img/logosn.png')" class="user-image rounded-circle" alt="User Image">
             </a>
             <ul class="dropdown-menu scale-up">
               <!-- User image -->
               <li class="user-header">
-                <img src="" class="float-left rounded-circle" alt="User Image">
+                <img src="asset('home/img/logosn.png')" class="float-left rounded-circle" alt="User Image">
                 <p>
                   Juliya Brus
                   <small class="mb-5">jb@gmail.com</small>
@@ -42,21 +42,14 @@
               <li class="user-body">
                 <div class="row no-gutters">
                   <div class="col-12 text-left">
-                    <a href="#"><i class="ion ion-person"></i> My Profile</a>
+                    <a href="/profile"><i class="ion ion-person"></i> My Profile</a>
                   </div>
                   <div class="col-12 text-left">
-                    <a href="#"><i class="ion ion-email-unread"></i> Inbox</a>
-                  </div>
-                  <div class="col-12 text-left">
-                    <a href="#"><i class="ion ion-settings"></i> Setting</a>
-                  </div>
-				          <div role="separator" class="divider col-12"></div>
-				          <div class="col-12 text-left">
-                    <a href="#"><i class="ti-settings"></i> Account Setting</a>
+                    <a href="/historytest"><i class="ion ion-email-unread"></i> Lịch sử thi</a>
                   </div>
                   <div role="separator" class="divider col-12"></div>
                   <div class="col-12 text-left">
-                    <a href="#"><i class="fa fa-power-off"></i> Logout</a>
+                    <a href="/logout"><i class="fa fa-power-off"></i> Logout</a>
                   </div>				
                 </div>
                 <!-- /.row -->

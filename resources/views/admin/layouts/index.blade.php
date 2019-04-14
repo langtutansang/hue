@@ -109,7 +109,6 @@
           }
         });
       });
-
     </script>
     @yield("script")
 </body>

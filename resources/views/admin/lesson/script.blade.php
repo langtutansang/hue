@@ -10,26 +10,14 @@
 <script src="{{ asset('admin-asset/sweetalert2/dist/sweetalert2.min.js')}}"></script>
 <script src="{{ asset('admin-asset/js/data-table/bootstrap-table-export.js') }}"></script>
 <script src="{{ asset('admin-asset/js/select2/select2.full.min.js') }}"></script>
+<script src="{{ asset('admin-asset/js/ckeditor/ckeditor.js') }}"></script>
 <script>
+    $('.chosen-select-classes').select2({
+        placeholder: 'Chọn lớp học',
+        allowClear: true,
+        dropdownParent: $(".chosen-select-single"),
+    })
     $(function(){
-        $('.modalAdd').on('click', function(){
-            getFormCreate(
-                "lesson",
-                ()=>{
-                    return ({ 
-                        title: $('#create-form input[name="title"]').val(),
-                        classes_id: $('#create-form select[name="classes"]').val(),
-                    })
-                }, 
-                ()=>{
-                    $('.chosen-select-classes').select2({
-                        placeholder: 'Chọn lớp học',
-                        allowClear: true,
-                        dropdownParent: $(".chosen-select-single"),
-                    })
-                }
-            );            
-        });
         $('.edit-row').on('click', function(){
             let id = $(this).attr('edit-id');
             getFormEdit(
@@ -54,4 +42,5 @@
             deletePopup("lesson", $(this).attr('delele_id'));
         });
     });
-    </script>
+    CKEDITOR.replace( 'editor1' );
+</script>

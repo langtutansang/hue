@@ -1,5 +1,3 @@
-<!-- data table JS
-    ============================================ -->
 <script src="{{ asset('admin-asset/js/data-table/bootstrap-table.js') }}"></script>
 <script src="{{ asset('admin-asset/js/data-table/tableExport.js') }}"></script>
 <script src="{{ asset('admin-asset/js/data-table/data-table-active.js') }}"></script>
@@ -20,12 +18,12 @@
                         title: $('#create-form input[name="title"]').val(),
                         category_id: $('#create-form select[name="category"]').val(),
                     })
-                }, 
+                },
                 ()=>{
                     $('.chosen-select-category').select2({
                         placeholder: 'Chọn loại khóa học',
                         allowClear: true,
-                        dropdownParent: $(".chosen-select-single"),
+                        dropdownParent: $(".chosen-select-single-category")
                     })
                 }
             );            
@@ -36,17 +34,16 @@
                 "courses", 
                 id,
                 ()=>{
-                    return ({ 
+                    return ({
                         title: $('#edit-form input[name="title"]').val(),
-                        course_id: $('#edit-form select[name="course"]').val(),
-                        teacher: $('#edit-form input[name="teacher"]').val()
+                        category_id: $('#edit-form select[name="category"]').val()
                     })
                 }, 
                 ()=>{
                     $('.chosen-select-category').select2({
-                        placeholder: 'Chọn khóa học',
+                        placeholder: 'Chọn loại khóa học',
                         allowClear: true,
-                        dropdownParent: $(".chosen-select-single"),
+                        dropdownParent: $(".chosen-select-single-category"),
                     })
                 }
             );

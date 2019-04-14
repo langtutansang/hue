@@ -52,12 +52,12 @@
                     $('.chosen-select-lesson').select2({
                         placeholder: 'Chọn lớp học',
                         allowClear: true,
-                        dropdownParent: $(".chosen-select-single"),
+                        dropdownParent: $(".chosen-select-single-lesson"),
                     });
                     $('.chosen-select-vocabulary').select2({
                         placeholder: 'Chọn từ vựng',
                         allowClear: true,
-                        dropdownParent: $(".chosen-select-single"),
+                        dropdownParent: $(".chosen-select-single-vocabulary"),
                     })
                 }
             );

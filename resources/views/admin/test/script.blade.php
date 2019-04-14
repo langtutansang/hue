@@ -19,8 +19,8 @@
                     return ({ 
                         title: $('#create-form input[name="title"]').val(),
                         classes_id: $('#create-form select[name="classes"]').val(),
-                        description: $('#create-form select[name="description"]').val(),
-                        timetest: $('#create-form select[name="timetest"]').val(),
+                        description: $('#create-form input[name="description"]').val(),
+                        timetest: $('#create-form input[name="timetest"]').val(),
                     })
                 }, 
                 ()=>{
@@ -41,8 +41,8 @@
                     return ({ 
                         title: $('#edit-form input[name="title"]').val(),
                         classes_id: $('#edit-form select[name="classes"]').val(),
-                        description: $('#edit-form select[name="description"]').val(),
-                        timetest: $('#edit-form select[name="timetest"]').val(),
+                        description: $('#edit-form input[name="description"]').val(),
+                        timetest: $('#edit-form input[name="timetest"]').val(),
                     })
                 }, 
                 ()=>{

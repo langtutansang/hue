@@ -10,7 +10,7 @@
                     </div>
                     <div class="sparkline13-graph">
                         <div class="datatable-dashv1-list custom-datatable-overright">
-                            <button type="button" class="btn btn-primary modalAdd">Thêm mới</button>
+                            <button type="button" class="btn btn-primary modalAdd">Tạo câu hỏi mới</button>
                             <div id="toolbar">
                                 <select class="form-control dt-tb">
                                     <option value="">Export Basic</option>

@@ -21,10 +21,10 @@
                                 data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
                                 <thead>
                                     <tr>
-                                        <th data-field="id">STT</th>
-                                        <th data-field="title" data-editable="true">Từ</th>
-                                        <th data-field="description" >Nghĩa của từ</th>
-                                        <th data-field="action">Action</th>
+                                        <th data-field="id" style="width: 46px !important">STT</th>
+                                        <th data-field="title" style="width: 200px !important;">Từ</th>
+                                        <th data-field="description" style="width: 600px !important;" >Nghĩa của từ</th>
+                                        <th data-field="action" style="width: 200px !important;">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>

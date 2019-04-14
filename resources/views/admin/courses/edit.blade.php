@@ -1,5 +1,5 @@
 <div id="edit-form" >
-    <div >
+    <div>
         <h4 class="modal-title">Sửa thông tin {{ $row->title}}</h4>
     </div>
     <div class="row">

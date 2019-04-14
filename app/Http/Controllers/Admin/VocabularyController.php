@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Admin\RestfulApiController;
 use App\Vocabulary;
 use App\Lesson;
-
+use GoogleTranslate;
 class VocabularyController extends RestfulApiController
 {
     public function __construct() {
@@ -16,5 +16,9 @@ class VocabularyController extends RestfulApiController
         return [
             'model' => $this->model::where('deleted', '0')->get(),
         ];
+    }
+    public function transText()
+    {
+        GoogleTranslate::translate('Hello world');
     }
 }

@@ -53,7 +53,7 @@ const converSlug = (slug) => {
     return slug;
 }
 
-const getFormCreate = (route, data, onOpen = ()=>{}) =>{
+const getFormCreate = (route, data, onOpen = ()=>{}, options = {}) =>{
     $.ajax({
         type:'GET',
         url:`/admin/${route}/create`,
@@ -66,9 +66,10 @@ const getFormCreate = (route, data, onOpen = ()=>{}) =>{
                     cancelButtonColor:"#d33",
                     confirmButtonText:"Thêm",
                     cancelButtonText:"Hủy bỏ",
-                    onOpen
+                    onOpen,
+                    ...options
                 })
-                .then(()=> {                    
+                .then(()=> {
                     $.ajax({
                         type:'POST',
                         url:`/admin/${route}`,
@@ -90,7 +91,7 @@ const getFormCreate = (route, data, onOpen = ()=>{}) =>{
         }
     })
 }
-const getFormEdit = (route, id, data, onOpen = ()=>{}) =>{
+const getFormEdit = (route, id, data,onOpen = ()=>{},options = {}) =>{
     $.ajax({
         type:'GET',
         url:`/admin/${route}/${id}/edit`,
@@ -103,7 +104,8 @@ const getFormEdit = (route, id, data, onOpen = ()=>{}) =>{
                     cancelButtonColor:"#d33",
                     confirmButtonText:"Xác nhận",
                     cancelButtonText:"Hủy bỏ",
-                    onOpen               
+                    onOpen,
+                    ...options
                 })
                 .then(()=> {
                     $.ajax({
@@ -111,7 +113,7 @@ const getFormEdit = (route, id, data, onOpen = ()=>{}) =>{
                         url:`/admin/${route}/${id}`,
                         data: data(),
                         success:(res) => {
-                            if(res.status === 200 ){                        
+                            if(res.status === 200 ){
                                 updateSuccessPopup();
                                 window.location.href = "";
                             }

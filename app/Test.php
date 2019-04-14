@@ -13,6 +13,6 @@ class Test extends Model
         return $this->belongsTo("App\Classes");
     }
     public function testQuestion(){
-        return $this->hasMany("App\TestQuestion");
+        return $this->hasMany("App\TestQuestion")->where('deleted', 0);
     }
 }

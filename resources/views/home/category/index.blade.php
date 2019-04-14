@@ -1,6 +1,6 @@
 @extends("home.layout.index")
 @section("content")
-    @foreach($courses as $course )
+    @foreach($courses as $course )        
         @include("home.category.content")
     @endforeach
 @endsection

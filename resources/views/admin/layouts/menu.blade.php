@@ -51,7 +51,15 @@
                         </a>
                         <ul class="submenu-angle" aria-expanded="true">
                             <li><a title="Bài test" href="/admin/test"><span class="mini-sub-pro">Bài test</span></a></li>
+                            <li><a title="Câu hỏi test" href="/admin/testquestion"><span class="mini-sub-pro">Câu hỏi test</span></a></li>
+                            <li><a title="Đáp án câu hỏi" href="/admin/testquestiondetail"><span class="mini-sub-pro">Đáp án của câu hỏi</span></a></li>
                         </ul>
+                    </li>
+                    <li>
+                        <a title="Users" href="/admin/users" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Users</span></a>
+                    </li>
+                    <li>
+                        <a title="Result Test" href="/admin/resulttest" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Result Test Users</span></a>
                     </li>
                 </ul>
             </nav>

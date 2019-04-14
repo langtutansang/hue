@@ -22,7 +22,9 @@
         </div>
         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
             <div class="input-mark-inner mg-b-22">
-                <input type="text" class="form-control" name="description" value="{{ $row->description}}">
+                <textarea name="description" id="description" rows="10" cols="80">
+                    {{ $row->description}}
+                </textarea>
             </div>
         </div>
     </div>

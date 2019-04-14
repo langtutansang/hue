@@ -10,7 +10,7 @@ class Course extends Model
     public $timestamps = false;
     
     public function classes(){
-        return $this->hasMany("App\Classes");
+        return $this->hasMany("App\Classes")->where('deleted', 0);
     }        
     public function category(){
         return $this->belongsTo("App\Category");

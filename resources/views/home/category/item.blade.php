@@ -2,13 +2,12 @@
     <div class="box bg-info">
         <div class="box-body">
             <div class="flexbox">
-            <h5>{{ $classitem->name }}</h5>
+            <h5>{{ $classitem->title }}</h5>
             </div>
             <div class="text-center my-2">
-            <div class="font-size-60 text-white">{{count($course->classes)}}</div>
+                <div class="font-size-60 text-white">{{count($classitem->lesson)}}</div>
             </div>
         </div>
-
         <div class="card-body bg-gray-light py-12">
             <span class="text-muted mr-1">Giáo viên:</span>
             <span class="text-dark">{{ $classitem->teacher }}</span>

@@ -9,7 +9,6 @@ class CategoryController
     public function index($id){
         $categories = Category::where("deleted", 0)->get();
         $category = Category::where("deleted", 0)->where("id", $id)->first();
-
         $courses = Course::where("deleted", 0)->where("category_id", $id)->get();
         $breadcrumbs = [
             [
