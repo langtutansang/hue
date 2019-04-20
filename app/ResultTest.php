@@ -14,4 +14,7 @@ class ResultTest extends Model
     public function resultTestDetail(){
         return $this->hasMany("App\ResultTestDetail");
     }
+    public function users(){
+        return $this->belongsTo("App\User");
+    }
 }

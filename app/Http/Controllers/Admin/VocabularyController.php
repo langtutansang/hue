@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Admin\RestfulApiController;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+
 use App\Vocabulary;
 use App\Lesson;
 use GoogleTranslate;
@@ -21,4 +24,18 @@ class VocabularyController extends RestfulApiController
     {
         GoogleTranslate::translate('Hello world');
     }
+
+    public function store(Request $request)
+    {
+        $class = new $this->model;
+        foreach($request->all() as $key => $field){
+            $class[$key] = $field;
+        }
+        $class->id = NULL;
+        $class->save();        
+
+        return response()->json([ 'status'=> 200, 'data' => $class]);
+    }
+
+
 }

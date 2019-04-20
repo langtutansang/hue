@@ -12,6 +12,8 @@
             </div>
         </div>
     </div>
+    <script id="lbdict_plugin_frame" type="text/javascript">
+    </script>
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
             <div class="input-mask-title">

@@ -1,108 +1,144 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="description" content="bootstrap default admin template">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Login</title>
+<!doctype html>
+<html class="no-js" lang="en">
 
-    <!-- START GLOBAL CSS -->
-    <link href="{{ asset('admin-asset/global/plugins/bootstrap/dist/css/bootstrap.min.css')}}" type="text/css" rel="stylesheet"/>
-    <link href="{{ asset('admin-asset/global/plugins/Waves/dist/waves.min.css')}}" type="text/css" rel="stylesheet"/>
-    <!-- END GLOBAL CSS -->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Login | Kiaalap - Kiaalap Admin Template</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- favicon
+            ============================================ -->
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('admin-asset/img/favicon.ico')}}">
+        <!-- Google Fonts
+            ============================================ -->
+        <link href="https://fonts.googleapis.com/css?family=Play:400,700" rel="stylesheet">
+        <!-- Bootstrap CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('admin-asset/css/bootstrap.min.css')}}">
+        <!-- Bootstrap CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('admin-asset/css/font-awesome.min.css')}}">
+        <!-- owl.carousel CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('admin-asset/css/owl.carousel.css')}}">
+        <link rel="stylesheet" href="{{ asset('admin-asset/css/owl.theme.css')}}">
+        <link rel="stylesheet" href="{{ asset('admin-asset/css/owl.transitions.css')}}">
+        <!-- animate CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('admin-asset/css/animate.css')}}">
+        <!-- normalize CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('admin-asset/css/normalize.css')}}">
+        <!-- main CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('admin-asset/css/main.css')}}">
+        <!-- mCustomScrollbar CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('admin-asset/css/scrollbar/jquery.mCustomScrollbar.min.css')}}">
+        <!-- metisMenu CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('admin-asset/css/metisMenu/metisMenu.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('admin-asset/css/metisMenu/metisMenu-vertical.css')}}">
 
-    <!-- START PAGE PLUG-IN CSS -->
-    <link rel="stylesheet" href="{{ asset('admin-asset/icons_fonts/font-awesome/css/font-awesome.min.css')}}"/>
-    <!-- END PAGE PLUG-IN CSS -->
+        <link rel="stylesheet" href="{{ asset('admin-asset/css/calendar/fullcalendar.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('admin-asset/css/calendar/fullcalendar.print.min.css')}}">
+        <link rel="stylesheet" href="{{ asset('admin-asset/css/morrisjs/morris.css')}}">
+       
+        <!-- forms CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('admin-asset/css/form/all-type-forms.css')}}">
+        <!-- style CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('admin-asset/style.css')}}">
+        <!-- responsive CSS
+            ============================================ -->
+        <link rel="stylesheet" href="{{ asset('admin-asset/css/responsive.css')}}">
+        <!-- modernizr JS
+            ============================================ -->
+        <script src="{{ asset('admin-asset/js/vendor/modernizr-2.8.3.min.js')}}"></script>
+    </head>
 
-    <!-- START TEMPLATE GLOBAL CSS -->
-    <link href="{{ asset('admin-asset/pages/login/css/user_login_v2.css')}}" type="text/css" rel="stylesheet"/>
-    <!-- END TEMPLATE GLOBAL CSS -->
-
-    <!-- Start favicon ico -->
-    <link rel="icon" href="{{ asset('admin-asset/favicon/prince.ico')}}" type="image/x-icon"/>
-    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('admin-asset/favicon/prince-192x192.png')}}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('admin-asset/favicon/prince-180x180.png')}}">
-    <!-- End favicon ico -->
-
-</head>
-<body>
-
-    <div class="login-background" style="background-image: url('{{asset('admin-asset/pages/login/images/login_2.jpg' ) }}' )">
-        <div class="login-left-section">
-            <h2>Hệ thống quản lý bán hàng online</h2>
-        </div>
-        <!--  START LOGIN -->
-        <div class="login-page">
-            <div class="main-login-contain">
-                <div class="login-form">
-                    <form id="form-validation" method="post" action="{{ route('adminAuth.submitLogin') }}">
-                        @csrf
-
-                        <h4>Đăng nhập tài khoản của bạn </h4>
-                        <p class="text-danger">
-                            @if(old('status'))
-                                {{ old('status')  }}
-                            @endif
-                        </p>
-                            <div class="form-group">
-                            <input required="required" type="email" id="email" name="email" value="{{ old('email') }}">
-                            <label class="control-label" for="email">Nhập email</label><i class="bar"></i>
-                            @if ($errors->has('email'))
-                                    <span class="invalid-feedback text-danger" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                        </div>
-                        <div class="form-group">
-                            <input required="required" type="password" id="password" name="password" value="{{ old('password') }}">
-                            <label class="control-label" for="password">Nhập mật khẩu</label><i class="bar"></i>
-                            @if ($errors->has('password'))
-                                    <span class="invalid-feedback text-danger" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                        </div>
-
-                        <div class="goto-login">
-                            <div class="forgot-password-login">
-                                    <input {{ old('remember') ? 'checked' : '' }} class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="remember">Ghi nhớ</label>
-                            </div>
-                            <button type="submit" class="btn btn-login float-button-light">Đăng nhập</button>
-                        </div>
-
-                    </form>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="error-pagewrap">
+            <div class="error-page-int">
+                <div class="text-center m-b-md custom-login">
+                    <h3>Đăng nhập</h3>
                 </div>
-            </div>
+                <div class="content-error">
+                    <div class="hpanel">
+                        <div class="panel-body">
+                            <form action="/admin/login" method="post" >
+                                @csrf
+                                <div class="form-group">
+                                    <label class="control-label" for="email">Email</label>
+                                    <input type="email" placeholder="Điền email" required name="email" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="password">Mật khẩu</label>
+                                    <input type="password" required  name="password"class="form-control">
+                                </div>
+                                <div class="checkbox login-checkbox">
+                                    <label>
+                                    <input type="checkbox" class="i-checks"> Ghi nhớ </label>
+                                </div>
+                                <button class="btn btn-success btn-block loginbtn">Đăng nhập</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+ 
+            </div>   
         </div>
-        <!--  END LOGIN -->
-    </div>
-
-    <!-- START CORE JAVASCRIPT -->
-    <script src="{{ asset('admin-asset/global/plugins/jquery/dist/jquery.min.js')}}"></script>
-    <script src="{{ asset('admin-asset/global/plugins/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-    <script src="{{ asset('admin-asset/global/plugins/Waves/dist/waves.min.js')}}"></script>
-    <!-- END CORE JAVASCRIPT -->
-
-    <!-- START PAGE JAVASCRIPT -->
-    <script>
-        function openNav() {
-            document.getElementById("myNav").style.width = "100%";
-        }
-
-        function closeNav() {
-            document.getElementById("myNav").style.width = "0%";
-        }
-
-        !(function ($) {
-            if (typeof Waves !== 'undefined') {
-                Waves.attach('.float-button-light', ['waves-button', 'waves-float', 'waves-light']);
-                Waves.init();
-            }
-        })(jQuery);
-    </script>
-    <!-- END PAGE JAVASCRIPT -->
+        <!-- jquery
+            ============================================ -->
+        <script src="{{ asset('admin-asset/js/vendor/jquery-1.12.4.min.js')}}"></script>
+        <!-- bootstrap JS
+            ============================================ -->
+        <script src="{{ asset('admin-asset/js/bootstrap.min.js')}}"></script>
+        <!-- wow JS
+            ============================================ -->
+        <script src="{{ asset('admin-asset/js/wow.min.js')}}"></script>
+        <!-- price-slider JS
+            ============================================ -->
+        <script src="{{ asset('admin-asset/js/jquery-price-slider.js')}}"></script>
+        <!-- meanmenu JS
+            ============================================ -->
+        <script src="{{ asset('admin-asset/js/jquery.meanmenu.js')}}"></script>
+        <!-- owl.carousel JS
+            ============================================ -->
+        <script src="{{ asset('admin-asset/js/owl.carousel.min.js')}}"></script>
+        <!-- sticky JS
+            ============================================ -->
+        <script src="{{ asset('admin-asset/js/jquery.sticky.js')}}"></script>
+        <!-- scrollUp JS
+            ============================================ -->
+        <script src="{{ asset('admin-asset/js/jquery.scrollUp.min.js')}}"></script>
+        <!-- mCustomScrollbar JS
+            ============================================ -->
+        <script src="{{ asset('admin-asset/js/scrollbar/jquery.mCustomScrollbar.concat.min.js')}}"></script>
+        <script src="{{ asset('admin-asset/js/scrollbar/mCustomScrollbar-active.js')}}"></script>
+        <!-- metisMenu JS
+            ============================================ -->
+        <script src="{{ asset('admin-asset/js/metisMenu/metisMenu.min.js')}}"></script>
+        <script src="{{ asset('admin-asset/js/metisMenu/metisMenu-active.js')}}"></script>
+        <!-- tab JS
+            ============================================ -->
+        <script src="{{ asset('admin-asset/js/tab.js')}}"></script>
+        <!-- icheck JS
+            ============================================ -->
+        <script src="{{ asset('admin-asset/js/icheck/icheck.min.js')}}"></script>
+        <script src="{{ asset('admin-asset/js/icheck/icheck-active.js')}}"></script>
+        <!-- plugins JS
+            ============================================ -->
+        <script src="{{ asset('admin-asset/js/plugins.js')}}"></script>
+        <!-- main JS
+            ============================================ -->
+        <script src="{{ asset('admin-asset/js/main.js')}}"></script>
 
     </body>
+
 </html>

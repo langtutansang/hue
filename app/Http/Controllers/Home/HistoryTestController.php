@@ -13,10 +13,14 @@ class HistoryTestController
         $categories = Category::where("deleted", 0)->get();
         return view("home.historytest.index",
            [   
-            "test"=> "",
             "categories"=> $categories, 
-            "breadcrumbs" => "ss",
-            "title" => "",
+            "breadcrumbs" => [
+                [
+                    "name" => "Lịch sử thi",
+                    "url" => "#"
+                ]
+            ],
+            "title" => "Lịch sử thi",
             "resultTests" =>$resultTests
         ]);
     }

@@ -7,11 +7,11 @@ class HomeController
 {
     public function index(){
         $categories = Category::where("deleted", 0)->get();   
-        return view("home.index",
+        return view("home.dashboard.index",
         [
-            "flag"=> 1,
             "title" => "Home",
-            "categories" => $categories
+            "categories" => $categories,
+            "breadcrumbs" => []
         ]);
     }
     

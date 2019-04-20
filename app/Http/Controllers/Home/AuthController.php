@@ -13,7 +13,10 @@ class AuthController
         return view("home.auth.index",
         [
             "categories"=> $categories, 
-            "breadcrumbs" => ["Đăng kí"],
+            "breadcrumbs" => [
+                ["name" => "Đăng nhập/Đăng ký",
+                "url" => "#"]
+            ],
             "title" => "Đăng nhập/Đăng ký",
         ]);
     }

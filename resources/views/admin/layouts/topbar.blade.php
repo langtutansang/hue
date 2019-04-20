@@ -28,19 +28,11 @@
                                             <li class="nav-item">
                                                 <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
                                                         <img src="" alt="" />
-                                                        <span class="admin-name">Prof.Anderson</span>
+                                                        <span class="admin-name">{{ Auth::user()->name }}</span>
                                                         <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
                                                     </a>
                                                 <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                                                    <li><a href="#"><span class="edu-icon edu-home-admin author-log-ic"></span>My Account</a>
-                                                    </li>
-                                                    <li><a href="#"><span class="edu-icon edu-user-rounded author-log-ic"></span>My Profile</a>
-                                                    </li>
-                                                    <li><a href="#"><span class="edu-icon edu-money author-log-ic"></span>User Billing</a>
-                                                    </li>
-                                                    <li><a href="#"><span class="edu-icon edu-settings author-log-ic"></span>Settings</a>
-                                                    </li>
-                                                    <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>
+                                                    <li><a href="/admin/logout"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -76,14 +68,6 @@
             </div>
         </div>
         <!-- Mobile Menu end -->
-        <div class="breadcome-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        @include("admin.layouts.breadcrumb")
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </div>
 </div>

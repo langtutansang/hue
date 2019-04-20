@@ -53,7 +53,7 @@ const converSlug = (slug) => {
     return slug;
 }
 
-const getFormCreate = (route, data, onOpen = ()=>{}, options = {}) =>{
+const getFormCreate = (route, data, onOpen = ()=>{}, options = {}, success = null) =>{
     $.ajax({
         type:'GET',
         url:`/admin/${route}/create`,
@@ -74,10 +74,10 @@ const getFormCreate = (route, data, onOpen = ()=>{}, options = {}) =>{
                         type:'POST',
                         url:`/admin/${route}`,
                         data: data(),
-                        success:(res) => {
-                            if(res.status === 200 ){                        
-                                createSuccessPopup();
-                                window.location.href = "";
+                        success: success ? success: (res) => {
+                            if(res.status === 200 ){    
+                                    createSuccessPopup();
+                                    window.location.href = "";
                             }
                             else createErrorPopup()
                         },

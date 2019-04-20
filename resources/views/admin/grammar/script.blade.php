@@ -18,9 +18,15 @@
                 ()=>{
                     return ({ 
                         title: $('#create-form input[name="title"]').val(),
-                        description: $('#create-form input[name="description"]').val(),
+                        description: CKEDITOR.instances['description'].getData(),
                     })
-                }
+                },
+                ()=>{
+                    CKEDITOR.replace( 'description' );
+                },
+                {
+                    width: 950,                    
+                },
             );            
         });
         $('.edit-row').on('click', function(){
@@ -31,9 +37,16 @@
                 ()=>{
                     return ({ 
                         title: $('#edit-form input[name="title"]').val(),
-                        description: $('#edit-form input[name="description"]').val(),
+                        description: CKEDITOR.instances['description'].getData(),
                     })
-                }
+                },
+                ()=>{
+                    CKEDITOR.replace( 'description' );
+                },
+
+                {
+                    width: 950,                    
+                },
             );
         });
         $('.delete-row').on('click', function(){

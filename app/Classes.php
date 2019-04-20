@@ -13,7 +13,7 @@ class Classes extends Model
         return $this->belongsTo("App\Course");
     }
     public function test(){
-        return $this->hasOne("App\Test");
+        return $this->hasMany("App\Test")->where('deleted', 0)->first();
     }
     public function lesson(){
         return $this->hasMany("App\Lesson")->where('deleted', 0);

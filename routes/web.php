@@ -20,6 +20,13 @@ Route::post('/resulttest/{id}', 'Home\TestController@resultTest')->name('resultt
 Route::get('/resulttest/{id}', 'Home\TestController@resultTestUser');
 Route::get('/historytest', 'Home\HistoryTestController@index')->name('historytest');
 Route::get('/forum', 'Home\ForumController@index')->name('forum');
+Route::get('/forum/{id}', 'Home\ForumController@detail')->name('forum.detail');
+Route::post('/forum/{id}', 'Home\ForumController@comment')->name('forum.comment');
+
+Route::get('/forum-create', 'Home\ForumController@create')->name('forum.create');
+Route::post('/forum-create', 'Home\ForumController@store');
+
+
 Route::get('/profile', 'Home\UserController@index')->name('profile');
 
 Route::group(['prefix' => 'admin'], function () {
@@ -32,9 +39,9 @@ Route::group(['prefix' => 'admin'], function () {
     Route::resource('/courses', 'Admin\CoursesController');
     Route::resource('/classes', 'Admin\ClassesController');
 
+    Route::post('/lesson/{id}', 'Admin\LessonController@update');
     Route::resource('/lesson', 'Admin\LessonController');
     Route::resource('/lessonvocabulary', 'Admin\LessonVocabularyController');
-    Route::get('/createlesson', 'Admin\LessonController@createLesson');
 
     
     Route::resource('/vocabulary', 'Admin\VocabularyController');

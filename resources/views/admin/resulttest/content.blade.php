@@ -11,11 +11,7 @@
                     <div class="sparkline13-graph">
                         <div class="datatable-dashv1-list custom-datatable-overright">
                             <div id="toolbar">
-                                <select class="form-control dt-tb">
-                                    <option value="">Export Basic</option>
-                                    <option value="all">Export All</option>
-                                    <option value="selected">Export Selected</option>
-                                </select>
+
                             </div>
                             <table id="table" width="100%" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
                                 data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
@@ -26,7 +22,6 @@
                                         <th data-field="test_id">Tên bài test</th>
                                         <th data-field="user">User</th>
                                         <th data-field="score">Điểm</th>
-                                        <th data-field="action">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>

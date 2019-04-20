@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="{{ asset('admin-asset/css/metisMenu/metisMenu-vertical.css') }}">
     <!-- style CSS
 		============================================ -->
-    <link rel="stylesheet" href="{{ asset('admin-asset/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('admin-asset/style.css') }}">
     <!-- responsive CSS
 		============================================ -->
     <link rel="stylesheet" href="{{ asset('admin-asset/css/responsive.css') }}">
@@ -63,7 +63,7 @@
     <!-- Start Welcome area -->
     <div class="all-content-wrapper">
         @include("admin.layouts.topbar")
-        @include("admin.layouts.content")
+        @yield("content");
         @include("admin.layouts.footer")
     </div>
 

@@ -13,7 +13,7 @@ class CategoryController
         $breadcrumbs = [
             [
                 
-                "name" => $category->name,
+                "name" => $category->title,
                 "url" => ""
             ],
         ];
@@ -23,7 +23,7 @@ class CategoryController
             "categories"=> $categories, 
             "courses" => $courses ,
             'breadcrumbs' => $breadcrumbs,
-            "title" => $category->name
+            "title" => $category->title
         ]);
     }
     

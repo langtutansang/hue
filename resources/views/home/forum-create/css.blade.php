@@ -1,0 +1,2 @@
+<link href="{{ asset('home/assets/vendor_components/select2/dist/css/select2.min.css') }}" rel="stylesheet" />
+<link href="{{ asset('home/assets/vendor_components/fileuploads/css/dropify.min.css') }}" rel="stylesheet" />

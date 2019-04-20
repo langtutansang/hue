@@ -3,13 +3,13 @@
     <a href="index.html" class="logo">
       <!-- mini logo -->
 	  <b class="logo-mini">
-		  <span class="light-logo"><img src="asset('home/img/logosn.png')" alt="logo"></span>
-		  <span class="dark-logo"><img src="asset('home/img/logosn.png')" alt="logo"></span>
+		  <span class="light-logo"><img src="{{ asset('home/img/logosn.png')}}" alt="logo"></span>
+		  <span class="dark-logo"><img src="{{ asset('home/img/logosn.png')}}" alt="logo"></span>
 	  </b>
       <!-- logo-->
       <span class="logo-lg">
-		  <img src="asset('home/img/logosn.png')" alt="logo" class="light-logo">
-	  	  <img src="asset('home/img/logosn.png')" alt="logo" class="dark-logo">
+		  <img src="{{  asset('home/img/logo.png')}}" alt="logo" class="light-logo">
+	  	  <img src="{{  asset('home/img/logosn.png') }}" alt="logo" class="dark-logo">
 	  </span>
     </a>
     <!-- Header Navbar -->
@@ -18,43 +18,39 @@
         <ul class="nav navbar-nav float-right" >
 		  
 		      <li class="search-box">
-            <a class="nav-link hidden-sm-down" href="javascript:void(0)"><i class="mdi mdi-magnify"></i></a>
-            <form class="app-search" style="display: none;">
-                <input type="text" class="form-control" placeholder="Search &amp; enter"> <a class="srh-btn"><i class="ti-close"></i></a>
-			      </form>
+
           </li>			
 		  <!-- User Account-->
           <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="asset('home/img/logosn.png')" class="user-image rounded-circle" alt="User Image">
-            </a>
-            <ul class="dropdown-menu scale-up">
-              <!-- User image -->
-              <li class="user-header">
-                <img src="asset('home/img/logosn.png')" class="float-left rounded-circle" alt="User Image">
-                <p>
-                  Juliya Brus
-                  <small class="mb-5">jb@gmail.com</small>
-                  <a href="#" class="btn btn-danger btn-sm btn-rounded">View Profile</a>
-                </p>
-              </li>
-              <!-- Menu Body -->
-              <li class="user-body">
-                <div class="row no-gutters">
-                  <div class="col-12 text-left">
-                    <a href="/profile"><i class="ion ion-person"></i> My Profile</a>
+            @if(Auth::check())
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{ Auth::user()->name }}<i class="fa fa-cog fa-spin"></i></a>
+              <ul class="dropdown-menu scale-up">
+                <!-- User image -->
+                <li >
+                    <h4 class="mb-5">{{ Auth::user()->email }}</h4>
+                  
+                </li>
+
+                <!-- Menu Body -->
+                <li class="user-body">
+                  <div class="row no-gutters">
+                    <div class="col-12 text-left">
+                      <a href="/profile"><i class="ion ion-person"></i>Thông tin</a>
+                    </div>
+                    <div class="col-12 text-left">
+                      <a href="/historytest"><i class="ion ion-email-unread"></i> Lịch sử thi</a>
+                    </div>
+                    <div role="separator" class="divider col-12"></div>
+                    <div class="col-12 text-left">
+                      <a href="/logout"><i class="fa fa-power-off"></i> Đăng xuất</a>
+                    </div>				
                   </div>
-                  <div class="col-12 text-left">
-                    <a href="/historytest"><i class="ion ion-email-unread"></i> Lịch sử thi</a>
-                  </div>
-                  <div role="separator" class="divider col-12"></div>
-                  <div class="col-12 text-left">
-                    <a href="/logout"><i class="fa fa-power-off"></i> Logout</a>
-                  </div>				
-                </div>
-                <!-- /.row -->
-              </li>
-            </ul>
+                  <!-- /.row -->
+                </li>
+              </ul>
+            @else
+              <a href="/auth">Đăng nhập</a>
+            @endif
           </li>
           <!-- Control Sidebar Toggle Button -->
         

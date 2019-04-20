@@ -26,17 +26,17 @@ class ClassesController
         $breadcrumbs = [
             [
                 
-                "name" => $classes->course->category->name,
+                "name" => $classes->course->category->title,
                 "url" => "/category/" . $classes->course->category->id
             ],
             [
                 
-                "name" => $classes->course->name,
+                "name" => $classes->course->title,
                 "url" => "/category/" . $classes->course->category->id . "#course" . $classes->course->id
             ],
             [
-                "name" => $classes->name,
-                "url" => ""
+                "name" => $classes->title,
+                "url" => "#"
             ]
         ];
 
@@ -46,7 +46,7 @@ class ClassesController
             "lessons" => $lessons ,
             "breadcrumbs" => $breadcrumbs,
             "classes" => $classes,
-            "title" => $classes->name,
+            "title" => $classes->title,
             "enabledTest" => $enabledTest
         ]);
     }

@@ -17,16 +17,16 @@ class TestController
         $categories = Category::where("deleted", 0)->get();
         $breadcrumbs = [
             [                
-                "name" => $test->classes->course->category->name,
+                "name" => $test->classes->course->category->title,
                 "url" => "/category/" . $test->classes->course->category->id
             ],
             [
                 
-                "name" => $test->classes->course->name,
+                "name" => $test->classes->course->title,
                 "url" => "/category/" . $test->classes->course->category->id . "#course" . $test->classes->course->id
             ],
             [
-                "name" => $test->name,
+                "name" => $test->title,
                 "url" => ""
             ]
         ];
@@ -35,7 +35,7 @@ class TestController
             "test"=> $test,
             "categories"=> $categories, 
             "breadcrumbs" => $breadcrumbs,
-            "title" => $test->name
+            "title" => $test->title
         ]);
     }
     function resultTest($id, Request $request){
