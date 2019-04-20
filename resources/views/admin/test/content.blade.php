@@ -10,19 +10,15 @@
                     </div>
                     <div class="sparkline13-graph">
                         <div class="datatable-dashv1-list custom-datatable-overright">
-                            <a type="button" class="btn btn-primary" href="/admin/test/create">Thêm mới</a>
                             <div id="toolbar">
-                                <select class="form-control dt-tb">
-                                    <option value="">Export Basic</option>
-                                    <option value="all">Export All</option>
-                                </select>
+                                <button type="button" class="btn btn-primary" onClick="window.location.href='/admin/test/create'">Thêm mới</button>
                             </div>
                             <table width="100%" id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
                                 data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
                                 <thead>
                                     <tr>
                                         <th data-field="id">STT</th>
-                                        <th data-field="title" data-editable="true">Tên bài test</th>
+                                        <th data-field="title">Tên bài test</th>
                                         <th data-field="classes" >Bài test của lớp</th>
                                         <th data-field="description" >Mô tả bài test</th>
                                         <th data-field="timetest" >Thời gian test</th>

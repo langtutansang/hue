@@ -24,7 +24,7 @@
             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 chosen-select-single">
                     <select name="classes_id" class="select2 col-md-12">
                         @foreach($classes as $class)
-                            <option value="{{ $class->id }}">{{ $class->title }}</option>
+                            <option value="{{ $class->id }}">{{ $class->title }} ( {{ $class->course->title }} )</option>
                         @endforeach
                     </select>
             </div>

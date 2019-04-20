@@ -10,19 +10,15 @@
                     </div>
                     <div class="sparkline13-graph">
                         <div class="datatable-dashv1-list custom-datatable-overright">
-                            <a href="/admin/lesson/create" class="btn btn-primary modalAdd">Thêm mới</a>
                             <div id="toolbar">
-                                <select class="form-control dt-tb">
-                                    <option value="">Export Basic</option>
-                                    <option value="all">Export All</option>
-                                </select>
+                                <a href="/admin/lesson/create" class="btn btn-primary modalAdd"  onClick="createRow()">Thêm mới</a>
                             </div>
                             <table width="100%" id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
                                 data-cookie-id-table="saveId" data-show-export="true" data-click-to-select="true" data-toolbar="#toolbar">
                                 <thead>
                                     <tr>
                                         <th data-field="id">STT</th>
-                                        <th data-field="name" data-editable="true">Tên bài học</th>
+                                        <th data-field="name">Tên bài học</th>
                                         <th data-field="category" >Lớp học</th>
                                         <th data-field="category" >Khóa học</th>
                                         <th data-field="action">Action</th>

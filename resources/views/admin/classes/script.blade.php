@@ -11,49 +11,41 @@
 <script src="{{ asset('admin-asset/js/data-table/bootstrap-table-export.js') }}"></script>
 <script src="{{ asset('admin-asset/js/select2/select2.full.min.js') }}"></script>
 <script>
-    $(function(){
-        $('.modalAdd').on('click', function(){
-            getFormCreate(
-                "classes",
-                ()=>{
-                    return ({ 
-                        title: $('#create-form input[name="title"]').val(),
-                        course_id: $('#create-form select[name="course"]').val(),
-                        teacher: $('#create-form input[name="teacher"]').val()
-                    })
-                }, 
-                ()=>{
-                    $('.chosen-select').select2({
-                        placeholder: 'Chọn khóa học',
-                        allowClear: true,
-                        dropdownParent: $(".chosen-select-single"),
-                    })
-                }
-            );            
-        });
-        $('.edit-row').on('click', function(){
-            let id = $(this).attr('edit-id');
-            getFormEdit(
-                "classes", 
-                id,
-                ()=>{
-                    return ({ 
-                        title: $('#edit-form input[name="title"]').val(),
-                        course_id: $('#edit-form select[name="course"]').val(),
-                        teacher: $('#edit-form input[name="teacher"]').val()
-                    })
-                }, 
-                ()=>{
-                    $('.chosen-select').select2({
-                        placeholder: 'Chọn khóa học',
-                        allowClear: true,
-                        dropdownParent: $(".chosen-select-single"),
-                    })
-                }
-            );
-        });
-        $('.delete-row').on('click', function(){
-            deletePopup("classes", $(this).attr('delele_id'));
-        });
-    });
+    function createRow(){
+        getFormCreate(
+            "classes",
+            ()=>{
+                return ({ 
+                    title: $('#create-form input[name="title"]').val(),
+                    course_id: $('#create-form select[name="course"]').val(),
+                    teacher: $('#create-form input[name="teacher"]').val()
+                })
+            },
+            ()=>{
+                // $('.select2').select2();
+                $('.select2').select2()
+            }
+        );    
+    }
+    function editRow(id){
+        getFormEdit(
+            "classes", 
+            id,
+            ()=>{
+                return ({ 
+                    title: $('#edit-form input[name="title"]').val(),
+                    course_id: $('#edit-form select[name="course"]').val(),
+                    teacher: $('#edit-form input[name="teacher"]').val()
+                })
+            },
+            ()=>{
+                $('.select2').select2()
+            }
+        );
+    }
+
+    function deleteRow(id){
+        deletePopup("classes", id);
+    }
+
     </script>

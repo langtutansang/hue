@@ -45,6 +45,11 @@
 		============================================ -->
     <link rel="stylesheet" href="{{ asset('admin-asset/css/responsive.css') }}">
     <link rel="stylesheet" href="{{ asset('admin-asset/toastr/toastr.min.css')}}"/>
+    <style>
+    .swal2-shown {
+      z-index: 999 !important;
+    }
+    </style>
     <meta name="_token" content="{{ csrf_token() }}">
 
     @yield("css")

@@ -3,7 +3,7 @@
         <div class="media bb-1 border-fade bg-course">
             <div class="media-body d-flex align-items-center h-50">
                 <h1 style="color: blue">
-                    {{ $course->title }} ({{ count($course->classes) == 0? "Chưa có ": count($course->classes)}} lớp )
+                    {{ $course->title }} ({{ count($course->classes) == 0? "Chưa có ": count($course->classes)}} Level )
                 </h1>
             </div>
         </div>

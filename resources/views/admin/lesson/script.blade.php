@@ -12,10 +12,7 @@
 <script src="{{ asset('admin-asset/js/select2/select2.full.min.js') }}"></script>
 <script src="{{ asset('admin-asset/js/ckeditor/ckeditor.js') }}"></script>
 <script>
-    $(function(){
-      
-        $('.delete-row').on('click', function(){
-            deletePopup("lesson", $(this).attr('delele_id'));
-        });
-    });
+    function deleteRow(id){
+        deletePopup("lesson", id);
+    }
 </script>

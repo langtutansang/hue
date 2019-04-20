@@ -11,10 +11,8 @@
 <script src="{{ asset('admin-asset/js/data-table/bootstrap-table-export.js') }}"></script>
 <script src="{{ asset('admin-asset/js/ckeditor/ckeditor.js') }}"></script>
 <script>
-    
-    $(function(){
-        $('.modalAdd').on('click', function(){
-            getFormCreate(
+    function createRow(){
+        getFormCreate(
                 "vocabulary",
                 ()=>{
                     return ({ 
@@ -49,11 +47,10 @@
                 {
                     width: 950,                    
                 }
-            );            
-        });
-        $('.edit-row').on('click', function(){
-            let id = $(this).attr('edit-id');
-            getFormEdit(
+            );
+    }
+    function editRow(id){
+        getFormEdit(
                 "vocabulary", 
                 id,
                 ()=>{
@@ -64,14 +61,35 @@
                 },
                 ()=>{
                     CKEDITOR.replace( 'description' );
+                    var h={s:"https://dict.laban.vn",w:650,h:400,hl:1,th:1};
+                    function loadScript(t,e){
+                        var n=document.createElement("script");n.type="text/javascript",
+                        n.readyState ? 
+                            n.onreadystatechange=function(){
+                                ("loaded"===n.readyState||"complete"===n.readyState)&&(n.onreadystatechange=null,e())
+                            }
+                        :
+                            n.onload=function(){
+                                e()
+                            },
+                            n.src=t,
+                            q=document.getElementById("lbdict_plugin_frame"),
+                            q.parentNode.insertBefore(n,q)
+                    }
+                    setTimeout( function(){
+                        loadScript("https://stc-laban.zdn.vn/dictionary/js/plugin/lbdictplugin.frame.min.js",
+                        function(){
+                            lbDictPluginFrame.init(h)
+                        }
+                    )},1e3); 
                 },
                 {
                     width: 950,                    
                 }
             );
-        });
-        $('.delete-row').on('click', function(){
-            deletePopup("vocabulary", $(this).attr('delele_id'));
-        });
-    });
-    </script>
+    }
+
+    function deleteRow(id){
+        deletePopup("vocabulary", id);
+    }
+</script>

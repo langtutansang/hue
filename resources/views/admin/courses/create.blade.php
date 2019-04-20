@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 chosen-select-single-category">
-            <select name="category" class="chosen-select-category col-md-12">
+            <select name="category" class="select2 col-md-12">
                 @foreach($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->title }}</option>
                 @endforeach

@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 chosen-select-single">
-            <select data-placeholder="chọn khóa học" name="course" class="chosen-select col-md-12">
+            <select name="course" class="select2 col-md-12">
                 @foreach($courses as $course)
                     <option value="{{ $course->id }}">{{ $course->title }}</option>
                 @endforeach

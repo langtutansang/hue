@@ -1,7 +1,7 @@
 <div>
     <h1 style="color: blue; text-align: center">Kết quả bài test</h1>
     <div class="col-md-12">
-        <h3>User: <b> {{ $result->users_id }}</b></h3>
+        <h3>User: <b> {{ $result->users->name }}</b></h3>
         <h3>Số câu đúng: <b> {{ $result->result_true }}</b></h3>
         <h3>Điểm: <b>{{ $result->score }}</b></h3>
         <h3>Kết quả: <i style="color: red; text-align: center">{{ $result->score >= 5 ? "Đạt": "Không đạt" }}</i></h3>

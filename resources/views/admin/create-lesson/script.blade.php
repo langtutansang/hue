@@ -57,6 +57,27 @@
                 
                 ()=>{
                     CKEDITOR.replace( 'description' );
+                    var h={s:"https://dict.laban.vn",w:650,h:400,hl:1,th:1};
+                    function loadScript(t,e){
+                        var n=document.createElement("script");n.type="text/javascript",
+                        n.readyState ? 
+                            n.onreadystatechange=function(){
+                                ("loaded"===n.readyState||"complete"===n.readyState)&&(n.onreadystatechange=null,e())
+                            }
+                        :
+                            n.onload=function(){
+                                e()
+                            },
+                            n.src=t,
+                            q=document.getElementById("lbdict_plugin_frame"),
+                            q.parentNode.insertBefore(n,q)
+                    }
+                    setTimeout( function(){
+                        loadScript("https://stc-laban.zdn.vn/dictionary/js/plugin/lbdictplugin.frame.min.js",
+                        function(){
+                            lbDictPluginFrame.init(h)
+                        }
+                    )},1e3); 
                 },
 
                 {
@@ -120,6 +141,13 @@
                 url:`/admin/lesson`,
                 data,
                 success: (res) => {
+                    if(res.status === 300 ){
+                        createWarningGrammarPopup();
+                    }else
+                    if(res.status === 400 ){    
+                        createWarningVocabularyPopup();
+                    }
+                    else
                     if(res.status === 200 ){    
                             createSuccessPopup();
                             window.location.href = "/admin/lesson";

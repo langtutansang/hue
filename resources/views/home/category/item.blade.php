@@ -5,7 +5,7 @@
             <h5>{{ $classitem->title }}</h5>
             </div>
             <div class="text-center my-2">
-                <div class="font-size-60 text-white">{{count($classitem->lesson)}}</div>
+                <div class="font-size-60 text-white">{{count($classitem->lesson)>0? count($classitem->lesson)." Lesson":"0 Lesson"}}</div>
             </div>
         </div>
         <div class="card-body bg-gray-light py-12">

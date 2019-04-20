@@ -7,6 +7,7 @@ use App\Classes;
 use App\ResultTest;
 use App\ResultTestDetail;
 use App\TestQuestion;
+use Auth;
 
 use Illuminate\Http\Request;
 
@@ -42,7 +43,7 @@ class TestController
         $kqs = $request->all();
         unset($kqs['_token']);        
         $data = new ResultTest();
-        $data->users_id = 1;
+        $data->users_id = Auth::user()->id;
         $data->score = 0;
         $data->test_id = $id;
         $data->result_true = 0;

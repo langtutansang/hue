@@ -120,6 +120,13 @@
                 url:`/admin/lesson/${$(this).attr('lesson-id')}`,
                 data,
                 success: (res) => {
+                    if(res.status === 300 ){
+                        createWarningGrammarPopup();
+                    }else
+                    if(res.status === 400 ){    
+                        createWarningVocabularyPopup();
+                    }
+                    else
                     if(res.status === 200 ){    
                         console.log('12')
                         updateSuccessPopup();

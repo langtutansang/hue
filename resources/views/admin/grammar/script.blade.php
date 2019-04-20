@@ -11,9 +11,8 @@
 <script src="{{ asset('admin-asset/js/data-table/bootstrap-table-export.js') }}"></script>
 <script src="{{ asset('admin-asset/js/ckeditor/ckeditor.js') }}"></script>
 <script>
-    $(function(){
-        $('.modalAdd').on('click', function(){
-            getFormCreate(
+    function createRow(){
+        getFormCreate(
                 "grammar",
                 ()=>{
                     return ({ 
@@ -27,11 +26,10 @@
                 {
                     width: 950,                    
                 },
-            );            
-        });
-        $('.edit-row').on('click', function(){
-            let id = $(this).attr('edit-id');
-            getFormEdit(
+            );    
+    }
+    function editRow(id){
+        getFormEdit(
                 "grammar", 
                 id,
                 ()=>{
@@ -48,9 +46,9 @@
                     width: 950,                    
                 },
             );
-        });
-        $('.delete-row').on('click', function(){
-            deletePopup("grammar", $(this).attr('delele_id'));
-        });
-    });
-    </script>
+    }
+
+    function deleteRow(id){
+        deletePopup("grammar", id);
+    }
+</script>

@@ -4,7 +4,7 @@
             <li class="nav-item"> <a class="nav-link {{ $loop->first ? 'active': '' }}" data-toggle="tab" href="#lesson{{ $lesson->id}}" role="tab" aria-expanded="true">
                 <span class="hidden-sm-up"><i class="ion-home"></i></span> <span class="hidden-xs-down">{{ $lesson->title }}</span> </a> 
             </li>
-        @endforeach    
+        @endforeach
         @isset($classes->test)
         <li class="nav-item"> <a class="nav-link" href="/test/{{$classes->test->id}}" >
                 <span class="hidden-sm-up"><i class="ion-home"></i></span> <span class="hidden-xs-down">Kiểm tra</span> </a> 

@@ -29,6 +29,8 @@ const deleteErrorPopup = () => toastr.error('Xóa dữ liệu không thành côn
 
 const createSuccessPopup = () => toastr.success('Thêm dữ liệu thành công','Thành công')
 const createErrorPopup = () => toastr.error('Thêm dữ liệu không thành công','lỗi')
+const createWarningGrammarPopup = () => toastr.error('Bạn phải nhập ngữ pháp','cảnh báo')
+const createWarningVocabularyPopup = () => toastr.error('Bạn phải nhập từ vựng','cảnh báo')
 
 const updateSuccessPopup = () => toastr.success('Sửa dữ liệu thành công','Thành công')
 const updateErrorPopup = () => toastr.error('Sửa dữ liệu không thành công','lỗi')

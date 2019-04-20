@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 chosen-select-single">
-                <select name="course" class="chosen-select col-md-12">
+                <select name="course" class="select2 col-md-12">
                     @foreach($courses as $course)
                         <option  {{  $row->course_id == $course->id ? 'selected' : '' }} value="{{ $course->id }}">{{ $course->title }}</option>
                     @endforeach

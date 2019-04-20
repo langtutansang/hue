@@ -60,9 +60,9 @@ class LessonController extends RestfulApiController
         $lessonVideo->lesson_id = $class->id;
         $lessonVideo->save();
         
-        if($request->has('grammar') ) {
-
-            $grammars = [];
+        if($request->get('grammar') != null) {
+ 
+            $grammars = [];            
             foreach($request->get('grammar') as $grammar){
                 $grammars[] = [
                     "grammar_id" => $grammar,
@@ -71,7 +71,7 @@ class LessonController extends RestfulApiController
             }
             LessonGrammar::insert($grammars);
         }
-        if($request->has('vocabulary') ) {
+        if($request->get('vocabulary') != null) {
             $vocabularies = [];
             foreach($request->get('vocabulary') as $vocabulary){
                 $vocabularies[] = [
@@ -98,7 +98,7 @@ class LessonController extends RestfulApiController
         
         LessonGrammar::where('lesson_id', $id)->delete();
         
-        if($request->has('grammar') ) {
+        if($request->get('grammar') != null) {
             $grammars = [];
             foreach($request->get('grammar') as $grammar){
                 $grammars[] = [
@@ -111,7 +111,7 @@ class LessonController extends RestfulApiController
         }
       
         LessonVocabulary::where('lesson_id', $id)->delete();
-        if($request->has('vocabulary') ) {
+        if($request->get('vocabulary') != null) {
             $vocabularies = [];
             foreach($request->get('vocabulary') as $vocabulary){
                 $vocabularies[] = [

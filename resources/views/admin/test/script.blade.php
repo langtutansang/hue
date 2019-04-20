@@ -11,9 +11,9 @@
 <script src="{{ asset('admin-asset/js/data-table/bootstrap-table-export.js') }}"></script>
 <script src="{{ asset('admin-asset/js/select2/select2.full.min.js') }}"></script>
 <script>
-    $(function(){
-        $('.modalAdd').on('click', function(){
-            getFormCreate(
+
+    function createRow(){
+        getFormCreate(
                 "test",
                 ()=>{
                     return ({ 
@@ -30,11 +30,10 @@
                         dropdownParent: $(".chosen-select-single"),
                     })
                 }
-            );            
-        });
-        $('.edit-row').on('click', function(){
-            let id = $(this).attr('edit-id');
-            getFormEdit(
+            );  
+    }
+    function editRow(id){
+        getFormEdit(
                 "test", 
                 id,
                 ()=>{
@@ -53,9 +52,10 @@
                     })
                 }
             );
-        });
-        $('.delete-row').on('click', function(){
-            deletePopup("test", $(this).attr('delele_id'));
-        });
-    });
-    </script>
+    }
+
+    function deleteRow(id){
+        deletePopup("test", id);
+    }
+
+</script>
