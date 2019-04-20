@@ -59,7 +59,12 @@
 </div>
 <div>
     <h1 style="color: blue; text-align: center  ">Nội dung câu hỏi
-    <button style="float:right" id="create-lesson" class="btn btn-success waves-effect waves-light">Thêm câu hỏi</button>
+    <button style="float:right" id="create-question" class="btn btn-success waves-effect waves-light">Thêm câu hỏi</button>
 
     </h1>
 </div>
+
+
+<script id="create-question-template" type="text/template">
+    @include('admin.create-test.question')
+</script>

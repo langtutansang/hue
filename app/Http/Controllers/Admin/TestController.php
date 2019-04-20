@@ -20,6 +20,7 @@ class TestController extends RestfulApiController
     public function create(){
         return View("admin.create-test.index",['classes'=> Classes::where("deleted", 0)->get()]);
     }
+
     public function edit($id)
     {
         $row = $this->model::find($id);        
