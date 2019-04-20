@@ -2,7 +2,7 @@
     <td>{{ $key+1 }}</td>
     <td>{{$row->title }}</td>
     <td>{{$row->classes->title }}</td>
-    <td>{{$row->description }}</td>
+    <td><div> {!!$row->description !!}</div></td>
     <td>{{$row->timetest }}</td>
     <td>
         <button class="btn btn-primary btn-outline edit-row" edit-id="{{$row->id }}" ><i class="fa fa-edit"></i></button>

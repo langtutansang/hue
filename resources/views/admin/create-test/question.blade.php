@@ -1,4 +1,4 @@
-<div>
+<div id="create-question">
     <div class="row">
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12">
             <div class="input-mask-title">
@@ -6,7 +6,7 @@
             </div>
         </div>
         <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
-            <div class="input-group">
+            <div>
                 <textarea name="title-question" id="title-question" rows="10" cols="80">
                 </textarea>
             </div>
@@ -27,7 +27,7 @@
                     </select>
                 </div>
                 <div class="col-md-4 input-mark-inner mg-b-22">
-                    <button type="button" class="btn btn-primary">Thêm đáp án</button>
+                    <button type="button" class="btn btn-primary" id="add-answer">Thêm đáp án</button>
                 </div>
             </div>
 
@@ -40,10 +40,13 @@
                     <label>Đáp án</label>
                 </div>
             </div>
-            <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
-                <div class="input-group">
-                    <span class="input-group-btn"><button type="button" class="btn btn-primary">A</button></span>
+            <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12 list-answer">
+                
+                <div class="input-group" style="margin-bottom:10px">
+                    <span class="input-group-addon head">A</span>
+                    <span class="input-group-addon"><input type="radio" name="question" value="A"></span>
                     <input type="text" class="form-control">
+                    <span class="input-group-addon"><a href="#"><i class="fa fa-times edu-danger-error"></i></a> </span>
                 </div>
             </div>
         </div>
@@ -56,7 +59,7 @@
         </div>
         <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
             <div class="input-mark-inner mg-b-22">
-               <input type="text" name="answer">
+               <input type="text" name="answer" class="form-control">
             </div>
         </div>
     </div>

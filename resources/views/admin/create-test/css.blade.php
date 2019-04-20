@@ -6,4 +6,12 @@
 .d-none {
     display:none;
 }
+input:read-only{
+    background: #fff !important;
+}
+.question-detail button {
+    position: absolute;
+    right: 40px;
+    top: 20px;
+}
 </style>
