@@ -19,7 +19,7 @@
                                     <tr>
                                         <th data-field="id">STT</th>
                                         <th data-field="title">Tên bài test</th>
-                                        <th data-field="classes" >Bài test của lớp</th>
+                                        <th data-field="classes" >Bài test của lớp - khóa</th>
                                         <th data-field="description" >Mô tả bài test</th>
                                         <th data-field="timetest" >Thời gian test</th>
                                         <th data-field="action">Action</th>

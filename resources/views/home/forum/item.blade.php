@@ -3,7 +3,7 @@
             <div class="box-body p-0">				  	
                 <h4 class="media-heading mt-15 mb-0 px-30"><a href="#">{{ $row->title }}</a></h4>
                 <div class="media">
-                    <img class="align-self-start w-160" src="{{ $row->picture }}" >
+                    <img class="align-self-start w-160" src="{{ asset($row->picture) }}" >
                     <div class="media-body">
                         <div class="forum-content">
                             {!! $row->content !!}

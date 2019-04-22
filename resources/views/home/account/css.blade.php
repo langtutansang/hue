@@ -1,5 +1,6 @@
 <link href="{{ asset('home/assets/vendor_plugins/carousel/owl.carousel.min.css') }}" rel="stylesheet" />
 <link href="{{ asset('home/assets/vendor_plugins/carousel/owl.theme.default.min.css') }}" rel="stylesheet" />
+
 <style>
     .owl-navigate {
         display: flex;

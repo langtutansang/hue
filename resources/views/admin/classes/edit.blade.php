@@ -14,7 +14,7 @@
             </div>
         </div>
     </div>
-    <div class="row select2-course">
+    <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
             <div class="input-mask-title">
                 <label>Khóa học</label>
@@ -28,6 +28,22 @@
                 </select>
         </div>
     </div>
+    <div class="row ">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+            <div class="input-mask-title">
+                <label>Lớp trước</label>
+            </div>
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+            <select name="previous_class" class="form-control col-md-12"  {{  $row->previous_class == "" ? 'selected' : '' }}>
+                <option value="" selected>Không có lớp trước</option>
+                @foreach($classes as $class)
+                    <option value="{{ $class->id }}" course_id="{{ $class->course_id }}"  {{  $row->previous_class == $class->id ? 'selected' : '' }} >{{ $class->title }}</option>
+                @endforeach
+            </select>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
             <div class="input-mask-title">
@@ -36,7 +52,11 @@
         </div>
         <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
             <div class="input-mark-inner mg-b-22">
-                <input type="text" class="form-control" name="teacher" value="{{ $row->teacher }}">
+                <select name="admin_id" class="select2 col-md-12">
+                    @foreach($admins as $admin)
+                        <option  {{  $row->admin_id == $admin->id ? 'selected' : '' }} value="{{ $admin->id }}">{{ $admin->name }}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
     </div>

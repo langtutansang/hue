@@ -11,7 +11,7 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control rounded" name="password" required placeholder="Mật khẩu">
+                    <input type="password" class="form-control rounded" name="password" required placeholder="Mật khẩu" required>
                     @if ($errors->has('password'))
                         <span class="help-block">
                             <strong>{{ $errors->first('password') }}</strong>
@@ -19,7 +19,7 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control rounded" name="password_confirmation" required placeholder="Nhập lại mật khẩu">
+                    <input type="password" class="form-control rounded" name="password_confirmation" required placeholder="Nhập lại mật khẩu" required>
                     @if ($errors->has('password_confirmation'))
                         <span class="help-block">
                             <strong>{{ $errors->first('password_confirmation') }}</strong>
@@ -27,7 +27,7 @@
                     @endif
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control rounded" name="name" required placeholder="Tên khai sinh">
+                    <input type="text" class="form-control rounded" name="name" required placeholder="Tên khai sinh" required>
                     @if ($errors->has('name'))
                         <span class="help-block">
                             <strong>{{ $errors->first('name') }}</strong>

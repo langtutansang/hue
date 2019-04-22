@@ -18,12 +18,24 @@
                 return ({ 
                     title: $('#create-form input[name="title"]').val(),
                     course_id: $('#create-form select[name="course"]').val(),
-                    teacher: $('#create-form input[name="teacher"]').val()
+                    admin_id: $('#create-form select[name="admin_id"]').val(),
+                    previous_class: $('#create-form select[name="previous_class"]').val(),
                 })
             },
             ()=>{
-                // $('.select2').select2();
                 $('.select2').select2()
+                let course = $('#create-form select[name="course"]').val();
+                $('#create-form select[name="previous_class"] option').attr('hidden', true);
+                $(`#create-form select[name="previous_class"] option[course_id="${course}"]`).attr('hidden', false);
+                $('#create-form select[name="previous_class"] option[value=""]').attr('hidden', false);
+
+                $('#create-form select[name="course"]').on('change', function(){
+                    let course = $('#create-form select[name="course"]').val();
+                    $('#create-form select[name="previous_class"] option').attr('hidden', true);
+                    $('#create-form select[name="previous_class"] option[value=""]').attr('hidden', false);
+                    $(`#create-form select[name="previous_class"] option[course_id="${course}"]`).attr('hidden', false);
+                })
+
             }
         );    
     }
@@ -35,11 +47,24 @@
                 return ({ 
                     title: $('#edit-form input[name="title"]').val(),
                     course_id: $('#edit-form select[name="course"]').val(),
-                    teacher: $('#edit-form input[name="teacher"]').val()
+                    admin_id: $('#edit-form select[name="admin_id"]').val(),
+                    previous_class: $('#edit-form select[name="previous_class"]').val(),
                 })
             },
             ()=>{
-                $('.select2').select2()
+                $('.select2').select2();
+                let course = $('#edit-form select[name="course"]').val();
+                $('#edit-form select[name="previous_class"] option').attr('hidden', true);
+                $(`#edit-form select[name="previous_class"] option[course_id="${course}"]`).attr('hidden', false);
+                $('#edit-form select[name="previous_class"] option[value=""]').attr('hidden', false);
+
+                $('#edit-form select[name="course"]').on('change', function(){
+                    let course = $('#edit-form select[name="course"]').val();
+                    $('#edit-form select[name="previous_class"] option').attr('hidden', true);
+                    $('#edit-form select[name="previous_class"] option[value=""]').attr('hidden', false);
+                    $(`#edit-form select[name="previous_class"] option[course_id="${course}"]`).attr('hidden', false);
+                })
+
             }
         );
     }

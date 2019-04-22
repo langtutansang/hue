@@ -30,7 +30,7 @@ class TestController extends RestfulApiController
     {
         $row = $this->model::find($id);        
         if(!isset($row)) return response()->json(['status' => 500]);
-        return response()->json([ 'data' => View("admin.$this->view.edit", ['row' => $row, 'classes'=> Classes::where("deleted", 0)->get() ])->render(), 'status'=> 200]);
+        return View("admin.edit-test.index", ['row' => $row, 'classes'=> Classes::where("deleted", 0)->get() ]);
     }
 
     public function store(Request $request)
@@ -64,5 +64,39 @@ class TestController extends RestfulApiController
 
         return response()->json([ 'status'=> 200]);
     }
+
+    
+    public function update(Request $request, $id)
+    {
+        Test::where('id', $id)->update([
+            "title" => $request->get('title'),
+            "description" => $request->get('description'),
+            "classes_id" => $request->get('classes_id'),
+            "timetest" => $request->get('timetest'),
+        ]);
+        TestQuestion::where('test_id', $id)->delete();
+        foreach($request->get('question') as $question){
+            $testQuestion = new TestQuestion();
+            $testQuestion->test_id = $id;
+            $testQuestion->title = $question["title"];
+            $testQuestion->answer = $question["answer"];
+            $testQuestion->type = isset($question["list"]) ? 0 : 1;
+            $testQuestion->save();
+            if(isset($question["list"]) )  {
+                foreach( $question["list"] as $list ){
+                    TestQuestionDetail::insert([
+                        "test_question_id" => $testQuestion->id,
+                        "answered" => $list['answered'],
+                        "head" => $list['head'],
+                    ]);
+                }
+
+               
+            }
+        }
+
+        return response()->json([ 'status'=> 200]);
+    }
+
 
 }

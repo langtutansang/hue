@@ -18,4 +18,7 @@ class Classes extends Model
     public function lesson(){
         return $this->hasMany("App\Lesson")->where('deleted', 0);
     }
+    public function admin(){
+        return $this->belongsTo("App\Admin");
+    }
 }

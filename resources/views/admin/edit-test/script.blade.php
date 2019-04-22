@@ -16,6 +16,14 @@
     $(function(){
         CKEDITOR.replace( 'description' );
         $('.select2').select2();
+        $('.delete-question').off();
+        $('.delete-question').on('click', function(){
+            $(this).parents('.question-detail').remove();
+            $('.question-detail label').each( ( key, e) =>{
+                $(e).html(`Câu số ${ key +1 }`)
+            })
+        });
+       
 
         $('#create-question').on('click', function(){
             swal({
@@ -123,6 +131,7 @@
                         </div>
                     `);
                 }
+
                 $('.delete-question').off();
                 $('.delete-question').on('click', function(){
                     $(this).parents('.question-detail').remove();
@@ -130,16 +139,17 @@
                         $(e).html(`Câu số ${ key + 1 }`)
                     })
                 });
+
             })
         })
 
-        $('#create-lesson').on('click', function(){
+        $('#edit-lesson').on('click', function(){
 
             let data = {
-                title: $('#create-form [name="test-title"]').val(),
+                title: $('#edit-form [name="test-title"]').val(),
                 description: CKEDITOR.instances["description"].getData(),
-                classes_id: $('#create-form [name="classes_id"]').val(),
-                timetest: $('#create-form [name="timetest"]').val(),
+                classes_id: $('#edit-form [name="classes_id"]').val(),
+                timetest: $('#edit-form [name="timetest"]').val(),
                 question: $('.content-question .question-detail').map( (key,e) =>({
                     title: $(e).find('span').html(),
                     answer: $(e).find('input[type="hidden"]').val(),
@@ -154,8 +164,8 @@
                 ).get()
             }
             $.ajax({
-                url: '/admin/test',
-                type: 'post',
+                url: `/admin/test/${$('#edit-form').attr('row-id') }`,
+                type: 'patch',
                 data,
                 success: (res)=>{
                     if(res.status === 200 ){    
@@ -169,7 +179,4 @@
 
 
     });
-    function deleteQuestion(){
-        $(this).parents('.question-detail').remove();
-    }
 </script>
