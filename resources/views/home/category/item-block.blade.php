@@ -1,11 +1,11 @@
-<a href="/classes/{{ $classitem->id }}">
+<a>
     <div class="box bg-info">
         <div class="box-body">
             <div class="flexbox">
             <h5>{{ $classitem->title }}</h5>
             </div>
             <div class="text-center my-2">
-                <div class="font-size-60 text-white">{{count($classitem->lesson) > 0 ? count($classitem->lesson)." bài":"0 bài"}}</div>
+                <div class="font-size-60 text-white"><i class="fa fa-lock"></i></div>
             </div>
         </div>
         <div class="card-body bg-gray-light py-12">

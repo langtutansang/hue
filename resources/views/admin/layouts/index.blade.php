@@ -68,14 +68,21 @@
     <!-- Start Welcome area -->
     <div class="all-content-wrapper">
         @include("admin.layouts.topbar")
-        @yield("content");
-        @include("admin.layouts.footer")
+        <div style="position: relative;height: calc(100vh - 60px)">
+          @yield("content")
+          @include("admin.layouts.footer")
+        </div>
+
     </div>
 
     <!-- jquery
 		============================================ -->
     <script src="{{ asset('admin-asset/js/vendor/jquery-1.12.4.min.js') }}"></script>
     <script src="{{ asset('admin-asset/js/custom.js') }}"></script>
+        <!-- metisMenu JS
+		============================================ -->
+    <script src="{{ asset('admin-asset/js/metisMenu/metisMenu.min.js') }}"></script>
+    <script src="{{ asset('admin-asset/js/metisMenu/metisMenu-active.js') }}"></script>
     <!-- bootstrap JS
 		============================================ -->
     <script src="{{ asset('admin-asset/js/bootstrap.min.js') }}"></script>
@@ -95,10 +102,7 @@
 		============================================ -->
     <script src="{{ asset('admin-asset/js/scrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
     <script src="{{ asset('admin-asset/js/scrollbar/mCustomScrollbar-active.js') }}"></script>
-    <!-- metisMenu JS
-		============================================ -->
-    <script src="{{ asset('admin-asset/js/metisMenu/metisMenu.min.js') }}"></script>
-    <script src="{{ asset('admin-asset/js/metisMenu/metisMenu-active.js') }}"></script>
+
     <!-- plugins JS
 		============================================ -->
     <script src="{{ asset('admin-asset/js/plugins.js') }}"></script>

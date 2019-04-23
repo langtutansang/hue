@@ -2,19 +2,24 @@
     <!-- Logo -->
     <a href="/" class="logo">
       <!-- mini logo -->
-	  <b class="logo-mini">
-		  <span class="light-logo"><img src="{{ asset('home/img/logosn.png')}}" alt="logo"></span>
-		  <span class="dark-logo"><img src="{{ asset('home/img/logosn.png')}}" alt="logo"></span>
-	  </b>
-      <!-- logo-->
-      <span class="logo-lg">
-		  <img src="{{  asset('home/img/logo.png')}}" alt="logo" class="light-logo">
-	  	  <img src="{{  asset('home/img/logosn.png') }}" alt="logo" class="dark-logo">
-	  </span>
+      <b class="logo-mini">
+        <span class="light-logo"><img src="{{ asset('home/img/logosn.png')}}" alt="logo"></span>
+        <span class="dark-logo"><img src="{{ asset('home/img/logosn.png')}}" alt="logo"></span>
+      </b>
+        <!-- logo-->
+        <span class="logo-lg">
+          <h4 style="font-size:120%">ELEARNING</h4>
+      </span>
     </a>
+    
     <!-- Header Navbar -->
     <nav class="navbar navbar-static-top">
-      <div class="navbar-custom-menu col-12" >
+      <div>
+        <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+        </a>
+      </div>
+      <div class="navbar-custom-menu" >
         <ul class="nav navbar-nav float-right" >
 		  
 		      <li class="search-box">

@@ -38,7 +38,9 @@
             <select name="previous_class" class="form-control col-md-12"  {{  $row->previous_class == "" ? 'selected' : '' }}>
                 <option value="" selected>Không có lớp trước</option>
                 @foreach($classes as $class)
-                    <option value="{{ $class->id }}" course_id="{{ $class->course_id }}"  {{  $row->previous_class == $class->id ? 'selected' : '' }} >{{ $class->title }}</option>
+                    @if(  $class->id !== $row->id)
+                        <option value="{{ $class->id }}" course_id="{{ $class->course_id }}"  {{  $row->previous_class == $class->id ? 'selected' : '' }} >{{ $class->title }}</option>
+                    @endif
                 @endforeach
             </select>
         </div>

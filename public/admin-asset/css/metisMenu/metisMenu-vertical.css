@@ -36,6 +36,14 @@
     flex-direction: column;
     position: relative;
 }
+
+.sidebar-nav .metismenu li.mm-active {
+    background: #006DF0;
+    
+}
+.sidebar-nav .metismenu li.mm-active a span {
+    color: white !important;
+}
 .sidebar-nav .metismenu a {
     position: relative;
     display: block;

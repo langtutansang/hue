@@ -56,6 +56,7 @@
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
       $.widget.bridge('uibutton', $.ui.button);
+
     </script>
     
     <!-- popper -->
@@ -83,6 +84,19 @@
 
     <!-- Fab Admin App -->
     <script src="{{ asset('home/js/template.js') }}"></script>
+    <script>
+      $(function(){
+        $('.sidebar-menu li').each( (key, e) => {
+          if($(e).find('a').attr('href') === window.location.pathname ){
+            $(e).addClass('active');
+            if($(e).parents('ul.treeview-menu').length > 0){
+              $(e).parents('li.treeview').addClass('active menu-open');
+            }
+
+          }
+        })
+      })
+    </script>
 
     <!-- Vector map JavaScript -->
     <script src="{{ asset('home/assets/vendor_components/jvectormap/lib2/jquery-jvectormap-2.0.2.min.js') }}"></script>

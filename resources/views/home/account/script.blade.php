@@ -8,14 +8,12 @@ $(function(){
     let files = $(this).prop('files');
     if(!files.length){
       $('.avata-content img').attr('src', $('.old-picture').html());
-      $('input[name="picture"]').val($('.old-picture').html());
       return;
     }
     reader = new FileReader();
     reader.readAsDataURL(files[0]);
     reader.onload = function () {
       $('.avata-content img').attr('src', reader.result);
-      $('input[name="picture"]').val(reader.result);
     };
 
   });

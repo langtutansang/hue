@@ -27,7 +27,9 @@ Route::get('/forum-create', 'Home\ForumController@create')->name('forum.create')
 Route::post('/forum-create', 'Home\ForumController@store');
 
 
-Route::get('/profile', 'Home\UserController@index')->name('profile');
+Route::get('/profile', 'Home\AccountController@index')->name('profile');
+Route::post('/profile/info', 'Home\AccountController@changeInfo');
+Route::post('/profile/password', 'Home\AccountController@changePassword');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', 'Admin\DashboardController@index')->name('admin');
