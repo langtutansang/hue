@@ -1,4 +1,7 @@
 @extends("home.layout.index")
 @section("content")
-ahihi
+    @include("home.dashboard.content")
+@endsection
+@section("css")
+    @include("home.dashboard.css")
 @endsection

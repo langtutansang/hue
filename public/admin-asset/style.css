@@ -3727,7 +3727,7 @@ div#sparklinehome canvas {
 	padding: 20px 0px;
     text-align: center;
     position: absolute;
-    bottom: 0px;
+    /* bottom: 0px; */
     width: 100%;
 }
 .message-single-top h1, .notification-single-top h1 {

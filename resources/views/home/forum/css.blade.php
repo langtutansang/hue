@@ -2,6 +2,7 @@
 <link href="{{ asset('home/assets/vendor_plugins/carousel/owl.theme.default.min.css') }}" rel="stylesheet" />
 <style>
     .forum-content {
+        max-height: 150px;
         overflow: hidden;
         text-overflow: ellipsis; 
         display: -webkit-box;

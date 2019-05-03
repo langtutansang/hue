@@ -69,7 +69,9 @@
     <div class="all-content-wrapper">
         @include("admin.layouts.topbar")
         <div style="position: relative;height: calc(100vh - 60px)">
-          @yield("content")
+          <div style="min-height: calc(100vh - 141px)">
+            @yield("content")
+          </div>
           @include("admin.layouts.footer")
         </div>
 
