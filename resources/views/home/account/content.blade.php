@@ -32,7 +32,7 @@
                                                 <div class="col-12">
                                                     <div class="input-group">
                                                     <div class="input-group-addon">
-                                                        <i class="fa fa-calendar"></i>
+                                                        <i class="fa fa-user"></i>
                                                     </div>
                                                     <input type="text" name="name" class="form-control" value="{{ $user->name}}" required/>
                                                     </div>
@@ -52,7 +52,7 @@
                                             <label>Email:</label>
                                             <div class="input-group">
                                             <div class="input-group-addon">
-                                                <i class="fa fa-phone"></i>
+                                                <i class="fa fa-envelope"></i>
                                             </div>
                                             <input type="text" name="email" class="form-control" value="{{ $user->email}}" required/>
                                             </div>
@@ -62,7 +62,7 @@
 
                                             <div class="input-group">
                                             <div class="input-group-addon">
-                                                <i class="fa fa-laptop"></i>
+                                                <i class="fa fa-address-book"></i>
                                             </div>
                                             <input type="text" class="form-control" name="address" value="{{ $user->address}}">
                                             </div>

@@ -3653,7 +3653,12 @@ div#sparklinehome canvas {
     background: #006DF0;
 }
 .sidebar-nav .metismenu{
-	background: #fff;
+	background: #303030;
+}
+
+#mCSB_1{
+	background: #303030 !important;
+    
 }
 .sidebar-nav {
     background: #fff;
@@ -3699,7 +3704,7 @@ div#sparklinehome canvas {
     color: #fff;
 }
 #sidebar {
-    background: #fff;
+	background: #303030;
 }
 #sidebar .sidebar-header {
     background: #fff;

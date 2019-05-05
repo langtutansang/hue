@@ -28,7 +28,7 @@
 		  <!-- User Account-->
           <li class="dropdown user user-menu">
             @if(Auth::check())
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> {{ Auth::user()->name }}<i class="fa fa-cog fa-spin"></i></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img style="margin-right: 5px;border-radius: 50%; width: 50px; height:50px" src="{{ Auth::user()->picture}}"> {{ Auth::user()->name }}</a>
               <ul class="dropdown-menu scale-up">
                 <!-- User image -->
                 <li >
@@ -54,7 +54,7 @@
                 </li>
               </ul>
             @else
-              <a href="/auth">Đăng nhập</a>
+              <a href="/auth/login">Đăng nhập</a>
             @endif
           </li>
           <!-- Control Sidebar Toggle Button -->

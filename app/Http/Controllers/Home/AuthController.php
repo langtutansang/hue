@@ -18,9 +18,22 @@ class AuthController extends Controller
 
 
 
-    public function index(){
+    public function login(){
         $categories = Category::where("deleted", 0)->get();
-        return view("home.auth.index",
+        return view("home.auth.login",
+        [
+            "categories"=> $categories, 
+            "breadcrumbs" => [
+                ["name" => "Đăng nhập/Đăng ký",
+                "url" => "#"]
+            ],
+            "title" => "Đăng nhập/Đăng ký",
+        ]);
+    }
+
+    public function register(){
+        $categories = Category::where("deleted", 0)->get();
+        return view("home.auth.register",
         [
             "categories"=> $categories, 
             "breadcrumbs" => [

@@ -49,7 +49,7 @@ class LessonController extends RestfulApiController
     public function store(Request $request)
     {
         $class = new $this->model;
-        $class->title = $request->get('tihatle');
+        $class->title = $request->get('title');
         $class->classes_id = $request->get('classes_id');
         $class->save();  
 

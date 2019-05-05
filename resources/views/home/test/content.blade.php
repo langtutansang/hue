@@ -1,11 +1,13 @@
+@if(Auth::check())
 <div class="row">
     <div class="col-md-12">
         <div style="text-align: center;">
             <h3>{{$test->name }}</h3>
             <h5>{!! $test->description!!}</h5>
+            <h5>Thời gian: {{$test->timetest }} phút</h5>
         </div>  
         <div style="text-align:center">
-            <button class="btn btn-danger" id="btnStart" onClick="initializeClock('clockdiv');">Start</button>
+            <button class="btn btn-danger" id="btnStart" onClick="initializeClock('clockdiv');">Bắt đầu</button>
             <input id="timestart" type="hidden" value="{{$test->timetest}}"/>
         </div> 
     </div>   
@@ -39,3 +41,6 @@
     </div>
 
 </div>
+@else
+<h3>Bạn phải đăng nhập mới có thể thi được</h3>
+@endif

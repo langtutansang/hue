@@ -60,7 +60,7 @@
     </script>
     
     <!-- popper -->
-    <script src="{{ asset('home/assets/vendor_components/popper/dist/popper.min.js') }}"></script>
+    <!-- <script src="{{ asset('home/assets/vendor_components/popper/dist/popper.min.js') }}"></script> -->
     
     <!-- Bootstrap 4.0-->
     <script src="{{ asset('home/assets/vendor_components/bootstrap/dist/js/bootstrap.js') }}"></script>	

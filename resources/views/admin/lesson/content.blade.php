@@ -19,7 +19,7 @@
                                     <tr>
                                         <th data-field="id">STT</th>
                                         <th data-field="name">Tên bài học</th>
-                                        <th data-field="category" >Lớp học</th>
+                                        <th data-field="classes" >Lớp học</th>
                                         <th data-field="category" >Khóa học</th>
                                         <th data-field="action">Action</th>
                                     </tr>

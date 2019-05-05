@@ -30,6 +30,9 @@ Route::post('/forum-create', 'Home\ForumController@store');
 Route::get('/profile', 'Home\AccountController@index')->name('profile');
 Route::post('/profile/info', 'Home\AccountController@changeInfo');
 Route::post('/profile/password', 'Home\AccountController@changePassword');
+Route::get('/auth/login', 'Home\AuthController@login');
+Route::get('/auth/register', 'Home\AuthController@register');
+
 
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', 'Admin\DashboardController@index')->name('admin');
@@ -56,13 +59,13 @@ Route::group(['prefix' => 'admin'], function () {
     
     Route::resource('/resulttest', 'Admin\ResultTestController');
     Route::get('/resulttestdetail/{id}', 'Admin\ResultTestController@resultTestDetail');
-    Route::get('/transText', 'Admin\VocabularyController@transText');
+    Route::get('/transText/{data}', 'Admin\VocabularyController@transText');
+    Route::get('/getAudio/{data}', 'Admin\VocabularyController@getAudio');
     
     Route::resource('/users', 'Admin\UserController');
 });
 
 Auth::routes();
-Route::get('/auth', 'Home\AuthController@index');
 
 Route::get('/logout', function(){
     Auth::logout();

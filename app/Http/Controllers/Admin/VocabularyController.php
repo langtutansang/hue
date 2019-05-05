@@ -8,7 +8,8 @@ use Illuminate\Http\Response;
 
 use App\Vocabulary;
 use App\Lesson;
-use GoogleTranslate;
+
+use Ixudra\Curl\Facades\Curl;
 class VocabularyController extends RestfulApiController
 {
     public function __construct() {
@@ -20,11 +21,26 @@ class VocabularyController extends RestfulApiController
             'model' => $this->model::where('deleted', '0')->get(),
         ];
     }
-    public function transText()
+    public function transText($data)
     {
-        GoogleTranslate::translate('Hello world');
+        $response = Curl::to("https://dict.laban.vn/ajax/widget-search?type=1&query=$data&vi=0")
+
+        ->get();
+        return response($response)->withHeaders([
+            'Content-Encoding' => 'gzip',
+            'Content-Type'  => 'application/json;charset=UTF-8'
+        ]);
     }
 
+    public function getAudio($data)
+    {
+        $response = Curl::to("https://dict.laban.vn/ajax/getsound?accent=us&word=$data")
+        ->get();
+        return response($response)->withHeaders([
+            'Content-Encoding' => 'gzip',
+            'Content-Type'  => 'application/json;charset=UTF-8'
+        ]);
+    }
     public function store(Request $request)
     {
         $class = new $this->model;

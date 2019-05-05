@@ -1,64 +1,68 @@
-<div class="register-box">
-    <div class="register-box-body">
-        <form method="POST" action="{{ url('register') }}" id="register-form" >
-            @csrf
-                <div class="form-group">
-                    <input type="text" class="form-control rounded" name="email" placeholder="Email" value="{{ old('email') }}" required autofocus>
-                    @if ($errors->has('email'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('email') }}</strong>
-                        </span>
-                    @endif
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control rounded" name="password" required placeholder="Mật khẩu" required>
-                    @if ($errors->has('password'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('password') }}</strong>
-                        </span>
-                    @endif
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-control rounded" name="password_confirmation" required placeholder="Nhập lại mật khẩu" required>
-                    @if ($errors->has('password_confirmation'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('password_confirmation') }}</strong>
-                        </span>
-                    @endif
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control rounded" name="name" required placeholder="Tên khai sinh" required>
-                    @if ($errors->has('name'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('name') }}</strong>
-                        </span>
-                    @endif
-                </div>
-                <div class="form-group">
-                    <input type="number" class="form-control rounded" name="phone" required placeholder="Số điện thoại">
-                    @if ($errors->has('phone'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('phone') }}</strong>
-                        </span>
-                    @endif
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control rounded" name="address" required placeholder="Địa chỉ">
-                    @if ($errors->has('address'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('address') }}</strong>
-                        </span>
-                    @endif
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control rounded" name="identity_card" required placeholder="CMND">
-                    @if ($errors->has('identity_card'))
-                        <span class="help-block">
-                            <strong>{{ $errors->first('identity_card') }}</strong>
-                        </span>
-                    @endif
-                </div>
-                <button type="submit" class="btn btn-info btn-block margin-top-10">Đăng ký</button>
-        </form>
+
+
+@extends("home.layout.index")
+@section("content")
+<div class="row mb-20">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="register-box">
+            <div class="register-box-body">
+                <form method="POST" action="{{ url('register') }}" id="register-form" >
+                    @csrf
+                        @if($errors->all())
+                            <span class="help-block">
+                                <strong>Thông tin bạn nhập không chính xác</strong>
+                            </span>
+                        @endif
+                        <div class="form-group    @if ($errors->has('email'))
+                                border border-danger
+                            @endif">
+                            <input type="text" class="form-control rounded" name="email" placeholder="Email" value="{{ old('email') }}" required autofocus>
+                         
+                        </div>
+                        <div class="form-group    @if ($errors->has('password'))
+                                border border-danger
+                            @endif">
+                            <input type="password" class="form-control rounded" name="password" required placeholder="Mật khẩu" required>
+                         
+                        </div>
+                        <div class="form-group    @if ($errors->has('password_confirmation'))
+                                border border-danger
+                            @endif">
+                            <input type="password" class="form-control rounded" name="password_confirmation" required placeholder="Nhập lại mật khẩu" required>
+                         
+                        </div>
+                        <div class="form-group @if ($errors->has('name'))
+                                border border-danger
+                            @endif">
+                            <input type="text" class="form-control rounded" name="name" required placeholder="Tên khai sinh" required>
+                            
+                        </div>
+                        <div class="form-group   @if ($errors->has('phone'))
+                                border border-danger
+                            @endif">
+                            <input type="number" class="form-control rounded" name="phone" required placeholder="Số điện thoại">
+                          
+                        </div>
+                        <div class="form-group  @if ($errors->has('address'))
+                                border border-danger
+                            @endif">
+                            <input type="text" class="form-control rounded" name="address" required placeholder="Địa chỉ">
+                           
+                        </div>
+                        <div class="form-group  @if ($errors->has('identity_card'))
+                                border border-danger
+                            @endif">
+                            <input type="text" class="form-control rounded" name="identity_card" required placeholder="CMND">
+                           
+                        </div>
+                        <button type="submit" class="btn btn-info btn-block margin-top-10">Đăng ký</button>
+                        <a href="/auth/register">Bạn đã có tài khoản</a>
+                
+                </form>
+            </div>
+        </div>
     </div>
 </div>
+
+@endsection

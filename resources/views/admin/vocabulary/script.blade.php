@@ -11,6 +11,30 @@
 <script src="{{ asset('admin-asset/js/data-table/bootstrap-table-export.js') }}"></script>
 <script src="{{ asset('admin-asset/js/ckeditor/ckeditor.js') }}"></script>
 <script>
+    var search = () => {
+        $.ajax({
+            url: `/admin/transText/${$($('[name="title"]')).val()}`,
+            type: 'GET',
+            success: (res) => {
+                if( res.enViData){
+                    let dom = $(`<div>${res.enViData.best.details}</div>` );
+                    $.ajax({
+                        url: `/admin/getAudio/${$($('[name="title"]')).val()}`,
+                        type: 'GET',
+                        success: (res) => {
+                            dom.find('#sound').append(`
+                            <div class="ckeditor-html5-audio" style="text-align:center">
+                                <audio controls="controls" controlslist="nodownload" src="${res.data}">&nbsp;</audio>
+                            </div>`
+                            );
+                            dom.find('.fl a').remove();
+                            CKEDITOR.instances['description' ].setData(dom.html());
+                        }
+                    })
+                }
+            }
+        })
+    }
     function createRow(){
         getFormCreate(
                 "vocabulary",
@@ -22,33 +46,14 @@
                 },
                 ()=>{
                     CKEDITOR.replace( 'description' );
-                    var h={s:"https://dict.laban.vn",w:650,h:400,hl:1,th:1};
-                    function loadScript(t,e){
-                        var n=document.createElement("script");n.type="text/javascript",
-                        n.readyState ? 
-                            n.onreadystatechange=function(){
-                                ("loaded"===n.readyState||"complete"===n.readyState)&&(n.onreadystatechange=null,e())
-                            }
-                        :
-                            n.onload=function(){
-                                e()
-                            },
-                            n.src=t,
-                            q=document.getElementById("lbdict_plugin_frame"),
-                            q.parentNode.insertBefore(n,q)
-                    }
-                    setTimeout( function(){
-                        loadScript("https://stc-laban.zdn.vn/dictionary/js/plugin/lbdictplugin.frame.min.js",
-                        function(){
-                            lbDictPluginFrame.init(h)
-                        }
-                    )},1e3); 
+                    $('#search').on('click', search )
                 },
                 {
                     width: 950,                    
                 }
             );
     }
+
     function editRow(id){
         getFormEdit(
                 "vocabulary", 
@@ -61,27 +66,7 @@
                 },
                 ()=>{
                     CKEDITOR.replace( 'description' );
-                    var h={s:"https://dict.laban.vn",w:650,h:400,hl:1,th:1};
-                    function loadScript(t,e){
-                        var n=document.createElement("script");n.type="text/javascript",
-                        n.readyState ? 
-                            n.onreadystatechange=function(){
-                                ("loaded"===n.readyState||"complete"===n.readyState)&&(n.onreadystatechange=null,e())
-                            }
-                        :
-                            n.onload=function(){
-                                e()
-                            },
-                            n.src=t,
-                            q=document.getElementById("lbdict_plugin_frame"),
-                            q.parentNode.insertBefore(n,q)
-                    }
-                    setTimeout( function(){
-                        loadScript("https://stc-laban.zdn.vn/dictionary/js/plugin/lbdictplugin.frame.min.js",
-                        function(){
-                            lbDictPluginFrame.init(h)
-                        }
-                    )},1e3); 
+                    $('#search').on('click', search )
                 },
                 {
                     width: 950,                    
@@ -92,4 +77,5 @@
     function deleteRow(id){
         deletePopup("vocabulary", id);
     }
+
 </script>

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
@@ -55,9 +56,10 @@ class LoginController extends Controller
 
       // if unsuccessful, then redirect back to the login with the form data
       $this->incrementLoginAttempts($request);
-      $error = $request->only('email', 'remember');
-      $error['status'] = "Thông tin bạn nhập không chính xác";
-      return redirect()->back()->withInput($error);
+
+      throw ValidationException::withMessages([
+        'login' => "Đăng nhập lỗi",
+      ]);
     }
 
 }
